@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 cc_auth">
+  <div class="mt-5 mb-5 cc_auth">
     <h2 class="title has-text-centered">Sign up</h2>
 
     <form method="post" @submit.prevent="submit">

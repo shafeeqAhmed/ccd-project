@@ -1,7 +1,9 @@
 <template>
-  <div class="main-layout">
+  <div class="main-layout" ref="main_home">
     <Navbar />
-    <Nuxt />
+    <div class="">
+      <Nuxt />
+    </div>
     <Footer />
   </div>
 </template>
@@ -33,8 +35,17 @@ export default {
     async keepUserLoggedIn() {
       await this.attempt(localStorage.getItem('USER_TOKEN'))
       console.log('default - ', this.user)
+    },
+
+  },
+  mounted() {
+    this.$refs['main_home'].classList.add('main-home')
+    if(this.$route.name === 'index' ){
+      this.$refs['main_home'].classList.add('main-home')
+    }else{
+      this.$refs['main_home'].classList.remove('main-home')
     }
-  }
+  },
 }
 </script>
 
