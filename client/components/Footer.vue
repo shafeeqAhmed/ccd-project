@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer px-5 pt-md-3 bg-dark text-white">
+  <footer class="footer bg-dark text-white">
     <div>
       <p class="lead px-5"> {{ new Date().getFullYear() }} - Crypto Candle Data</p>
     </div>

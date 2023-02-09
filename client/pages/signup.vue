@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 p-5 cc_auth">
+  <div class="mt-5 cc_auth">
     <h2 class="title has-text-centered">Sign up</h2>
 
     <form method="post" @submit.prevent="submit">
@@ -21,9 +21,14 @@
           v-model="password" required>
         <input type="checkbox" @click="showPassword = !showPassword"> Show password
       </div>
-      <b-button variant="outline-primary" type="submit">Sign up</b-button>
+      <b-button variant="primary" class="w-100" type="submit">Sign up</b-button>
     </form>
-    <div class="mt-4 text-center">
+    <div class="d-flex align-items-center w-100 mt-2">
+      <div class="divider"></div>
+      <p class="m-0 m-2">or</p>
+      <div class="divider"></div>
+    </div>
+    <div class="mt-2 text-center">
       <p>
         Already got an account?
         <a class="text-primary" href="/login">Login</a>

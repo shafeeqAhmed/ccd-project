@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 p-5 cc_auth">
+  <div class="mt-5 cc_auth">
     <h2 class="title has-text-centered">Login</h2>
 
     <form method="post" @submit.prevent="submit">
@@ -21,18 +21,21 @@
           <input class="form-check-input" type="checkbox" name="remember"> Remember me
         </label>
       </div> -->
-      <b-button variant="outline-primary" type="submit">Login</b-button>
+      <b-button variant="primary" class="w-100" type="submit">Login</b-button>
     </form>
-    <div class="mt-4 text-center">
-      <p>
-        Forgot password?
-        <a class="text-primary" href="/forgotPwd">Reset it</a>
-      </p>
+    <div class="d-flex align-items-center w-100 mt-2">
+      <div class="divider"></div>
+      <p class="m-0 m-2">or</p>
+      <div class="divider"></div>
     </div>
-    <div class="mt-1 text-center">
+    <div class="mt-2 d-flex align-items-center justify-content-between w-100">
       <p>
         Don't have an account?
         <a class="text-primary" href="/signup">Sign up</a>
+      </p>
+      <p>
+        Forgot password?
+        <a class="text-primary" href="/forgotPwd">Reset it</a>
       </p>
     </div>
   </div>
