@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 cc_auth">
+  <div class="mt-5 mb-5 cc_auth">
     <h2 class="title has-text-centered">Login</h2>
 
     <form method="post" @submit.prevent="submit">
@@ -7,27 +7,13 @@
 
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Enter email"
-          name="email"
-          v-model="email"
-          required
-        />
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
+          required />
       </div>
       <div class="mb-3 mt-3">
         <label for="password" class="form-label">Password:</label>
-        <input
-          v-bind:type="[showPassword ? 'text' : 'password']"
-          class="form-control"
-          id="password"
-          placeholder="Enter password"
-          name="password"
-          v-model="password"
-          required
-        />
+        <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password"
+          placeholder="Enter password" name="password" v-model="password" required />
         <input type="checkbox" @click="showPassword = !showPassword" /> Show
         password
       </div>
