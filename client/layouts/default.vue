@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-layout">
     <Navbar />
     <Nuxt />
     <Footer />
@@ -18,7 +18,7 @@ export default {
     ...mapGetters({
       authenticated: 'auth/authenticated',
       user: 'auth/user'
-    }),    
+    }),
  },
 
   mounted() {
