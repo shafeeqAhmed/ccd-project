@@ -10,20 +10,20 @@
       <div class="px-5 navbar-item has-dropdown is-hoverable collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
+            <NuxtLink to="/"  class="nav-link"> Home </NuxtLink>
           </li>
           <!-- <li class="nav-item">
             <a href="/news" class="nav-link">News</a>
           </li> -->
           <li class="nav-item">
-            <a href="/pricing" class="nav-link">Pricing</a>
+            <NuxtLink to="/pricing"  class="nav-link"> Pricing </NuxtLink>
           </li>
           <li class="nav-item">
             <a href="https://documenter.getpostman.com/view/11410028/TVCY5BQc" class="nav-link" target="_blank">API
               Docs</a>
           </li>
           <li class="nav-item">
-            <a href="/candles" class="nav-link">Get Candles</a>
+            <NuxtLink to="/candles"  class="nav-link"> Get Candles </NuxtLink>
           </li>
           <li v-if="user" class="nav-item dropdown">
             <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -32,7 +32,7 @@
             </button>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item text-decoration-none" href="/profile">My Profile</a>
+                <NuxtLink to="/profile" class="dropdown-item text-decoration-none"> My Profile </NuxtLink>
                 <button class="dropdown-item btn btn-primary" @click="logout">
                   Logout
                 </button>
