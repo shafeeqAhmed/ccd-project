@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 <template>
-  <div class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+  <div class="bg-dark text-light text-center text-sm-start">
     <section class="headerSection text-center">
       <div class="container">
         <div class="align-items-center justify-content-between">
@@ -12,10 +12,7 @@
               Specify your parameters in the form below and get the candles in
               OHLC format (open, high, low, close).<br />
               Feel free to ask any question at
-              <a
-                class="has-text-secondary hover:underline"
-                href="mailto: cryptocandledata@gmail.com"
-              >
+              <a class="has-text-secondary hover:underline" href="mailto: cryptocandledata@gmail.com">
                 cryptocandledata@gmail.com
               </a>
             </p>
@@ -23,107 +20,71 @@
         </div>
       </div>
     </section>
-
-    <section class="p-5">
-      <h3>Select your desired exchange:</h3>
-      <div class="buttons is-centered pt-6">
-        <progress
-          v-if="isLoadingExchanges"
-          class="progress is-small is-dark"
-          max="100"
-        ></progress>
-        <div
-          v-for="exchange in exchanges"
-          v-else
-          :key="exchange"
-          style="text-align: center; margin: 3%"
-        >
-          <button
-            class="button is-primary is-rounded has-text-primary-dark"
-            :class="selectedExchange === exchange ? 'is-secondary' : 'is-light'"
-            @click="getData(exchange)"
-          >
-            <img
-              style="width: 125px"
-              :src="images[exchange.toLowerCase()]"
-              :alt="`Logo of ${exchange}`"
-            />
-          </button>
+    <section>
+      <div class="container">
+        <h3>Select your desired exchange:</h3>
+        <div class="buttons is-centered pt-6">
+          <progress v-if="isLoadingExchanges" class="progress is-small is-dark" max="100"></progress>
+          <div v-for="exchange in exchanges" v-else :key="exchange" style="text-align: center; margin: 3%">
+            <button class="button is-primary is-rounded has-text-primary-dark"
+              :class="selectedExchange === exchange ? 'is-secondary' : 'is-light'" @click="getData(exchange)">
+              <img style="width: 125px" :src="images[exchange.toLowerCase()]" :alt="`Logo of ${exchange}`" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
-    <section class="px-5 py-3 content ccdSection has-background-primary">
-      <h3 class="title has-text-secondary">
-        Select your crypto pair and interval:
-      </h3>
-      <progress
-        v-show="selectedExchange && !pairs.length"
-        class="progress is-small is-dark"
-        max="100"
-      ></progress>
-      <fieldset :disabled="!pairs.length" class="pt-6">
-        <div class="px-5">
-          <div class="container p-5">
-            <div class="row text-center g-4">
-              <div class="col-md">
+    <section class="content ccdSection has-background-primary">
+      <div class="container">
+        <h3 class="title has-text-secondary">
+          Select your crypto pair and interval:
+        </h3>
+        <progress v-show="selectedExchange && !pairs.length" class="progress is-small is-dark" max="100"></progress>
+        <fieldset :disabled="!pairs.length" class="pt-5">
+            <div class="row">
+              <div class="col-md-4">
                 <form>
                   <div class="form-group">
                     <label>1. Start typing...</label>
-                    <input
-                      v-model="inputSearch"
-                      class="form-control mt-3"
-                      :class="{ 'is-secondary': pairs.length }"
-                      :placeholder="pairs.length ? 'e.g. BTC or ETH' : ''"
-                    />
+                    <input v-model="inputSearch" class="form-control mt-3" :class="{ 'is-secondary': pairs.length }"
+                      :placeholder="pairs.length ? 'e.g. BTC or ETH' : ''" />
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                   </div>
                 </form>
               </div>
-              <div class="col-md">
+              <div class="col-md-4">
                 <label class="label is-6 has-text-primary-light">
-                  ... and choose your crypto pair
-                  <select class="mt-3 form-select" v-model="selectedPair">
-                    <option
-                      v-for="(pair, i) in searchPair"
-                      :key="i"
-                      :value="pair"
-                    >
+                  ... and choose your crypto pair</label>
+                  <select class="mt-3 form-select w-100" v-model="selectedPair">
+                    <option v-for="(pair, i) in searchPair" :key="i" :value="pair">
                       {{ pair }}
                     </option>
                   </select>
-                </label>
+
               </div>
-              <div class="col-md">
+              <div class="col-md-4">
                 <label class="label is-6 has-text-primary-light">
-                  2. Set your interval
-                  <select class="mt-3 form-select" v-model="selectedInterval">
-                    <option
-                      v-for="(interval, i) in intervals"
-                      :key="i"
-                      :value="interval"
-                    >
+                  2. Set your interval</label>
+                  <select class="mt-3 form-select w-100" v-model="selectedInterval">
+                    <option v-for="(interval, i) in intervals" :key="i" :value="interval">
                       {{ interval }}
                     </option>
                   </select>
-                </label>
+
               </div>
             </div>
-          </div>
-        </div>
-      </fieldset>
-      <button class="btn btn-primary btn-lg mb-5" @click="getCandle">
-        Get your candles!
-      </button>
-      <!-- Just to add a bit of space -->
-      <div v-if="!candles" class="py-5"></div>
+        </fieldset>
+        <b-button  variant="primary" class="mt-4" @click="getCandle">
+          Get your candles!
+        </b-button>
+        <!-- Just to add a bit of space -->
+        <div v-if="!candles" class="py-5"></div>
+      </div>
     </section>
 
     <!-- <section class="px-5 py-3 content mb-0 ccdSection has-background-primary"> -->
 
-    <section
-      v-if="candles"
-      class="bg-dark text-light px-5 text-center text-sm-start"
-    >
+    <section v-if="candles" class="bg-dark text-light px-5 text-center text-sm-start">
       <div class="card bg-secondary text-light">
         <div class="card-body text-center">
           <div>
@@ -147,11 +108,7 @@
         </div>
       </div>
       <div class="py-5 mb-5">
-        <button
-          v-if="!isCopying"
-          class="btn btn-primary btn-lg"
-          @click="copyCandles"
-        >
+        <button v-if="!isCopying" class="btn btn-primary btn-lg" @click="copyCandles">
           Copy to clipboard
         </button>
         <button v-else class="btn btn-primary btn-lg" @click="copyCandles">
@@ -162,10 +119,7 @@
         </button>
       </div>
     </section>
-    <section
-      v-else-if="isLoadingCandles"
-      class="content ccdSection has-background-primary"
-    >
+    <section v-else-if="isLoadingCandles" class="content ccdSection has-background-primary">
       <progress class="progress is-small is-dark" max="100"></progress>
     </section>
     <!-- Just to add a bit of space -->
@@ -293,7 +247,7 @@ export default {
 }
 
 .headerSection {
-  padding: 10% 10% 0%;
+  padding: 5% 0%;
 }
 
 .ccdResult {

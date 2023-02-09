@@ -26,7 +26,7 @@
       <div class="container p-5">
         <div class="row text-center g-4">
           <div class="col-md">
-            <div class="card bg-dark text-light">
+            <div class="card bg-dark text-light h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
                   <i class="bi bi-laptop"></i>
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="col-md">
-            <div class="card bg-secondary text-light">
+            <div class="card bg-secondary text-light h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
                   <i class="bi bi-person-square"></i>
@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="col-md">
-            <div class="card bg-dark text-light">
+            <div class="card bg-dark text-light h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
                   <i class="bi bi-people"></i>
@@ -121,7 +121,7 @@
             <div class="accordion-body">
               It's an interface between multiple crypto exchanges that allows you to fetch customized candle data without having to deal with specific exchange syntax.<br>
               Initially, we built it for ourselves because we needed it to test our trading and machine learning models with real and accurated data coming from the exchanges we use daily,
-              but eventually we made it publicly available. 
+              but eventually we made it publicly available.
             </div>
           </div>
         </div>
