@@ -62,6 +62,7 @@
         </li>
         <li v-else class="nav-item">
           <a href="/login" class="nav-link">Login</a>
+          <!-- <NuxtLink to="/login">Login</NuxtLink> -->
         </li>
       </ul>
     </div>
