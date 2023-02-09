@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 p-5">
+  <div class="mt-5 p-5 cc_auth">
     <h2 class="title has-text-centered">Login</h2>
 
     <form method="post" @submit.prevent="submit">
@@ -23,13 +23,13 @@
       </div> -->
       <b-button variant="outline-primary" type="submit">Login</b-button>
     </form>
-    <div class="mt-4 has-text-centered">
+    <div class="mt-4 text-center">
       <p>
         Forgot password?
         <a class="text-primary" href="/forgotPwd">Reset it</a>
       </p>
     </div>
-    <div class="mt-4 has-text-centered">
+    <div class="mt-1 text-center">
       <p>
         Don't have an account?
         <a class="text-primary" href="/signup">Sign up</a>
@@ -78,10 +78,10 @@ export default {
       }
       this.logIn(credentials).then(() => {
         this.$router.push('/')
-      
+
       }).catch((err) => {
         console.log(err)
-        this.error = err.response        
+        this.error = err.response
       });
     },
   },

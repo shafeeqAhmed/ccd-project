@@ -15,7 +15,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  
+
   // script: [
   //   { src: 'https://js.stripe.com/v3' },
   // ],
@@ -23,12 +23,13 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/css/bootstrap.min.css',
+    '~/assets/scss/style.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
       {src: '~/plugins/bootstrap.js', mode: 'client'},
-      {src: '~/plugins/vue-stripe.js', ssr: false },      
+      {src: '~/plugins/vue-stripe.js', ssr: false },
     ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,7 +46,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxt/content',
   ],
-  
+
   bootstrapVue: {
     icons: true
   },

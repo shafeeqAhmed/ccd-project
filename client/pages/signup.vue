@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 p-5">
+  <div class="mt-5 p-5 cc_auth">
     <h2 class="title has-text-centered">Sign up</h2>
 
     <form method="post" @submit.prevent="submit">
@@ -23,7 +23,7 @@
       </div>
       <b-button variant="outline-primary" type="submit">Sign up</b-button>
     </form>
-    <div class="mt-4 has-text-centered">
+    <div class="mt-4 text-center">
       <p>
         Already got an account?
         <a class="text-primary" href="/login">Login</a>
@@ -50,7 +50,7 @@ export default {
       error: null,
     }
   },
-  
+
   computed: {
     buttonLabel() {
       return (this.showPassword) ? "Hide" : "Show";
@@ -74,10 +74,10 @@ export default {
       }
       this.signUp(credentials).then(() => {
         this.$router.push('/pendingEmailVerification')
-      
+
       }).catch((err) => {
         console.log(err)
-        this.error = err.response        
+        this.error = err.response
       });
     },
   },
