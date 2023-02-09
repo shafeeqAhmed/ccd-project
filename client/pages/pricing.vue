@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3 p-5">
+  <div class="mt-3 p-5 pricing">
     <stripe-checkout
       ref="checkoutRef"
       mode="subscription"
