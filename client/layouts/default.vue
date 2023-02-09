@@ -1,9 +1,7 @@
 <template>
   <div class="main-layout" ref="main_home">
     <Navbar />
-    <div class="">
-      <Nuxt />
-    </div>
+    <Nuxt />
     <Footer />
   </div>
 </template>
@@ -38,14 +36,15 @@ export default {
     },
 
   },
-  mounted() {
-    this.$refs['main_home'].classList.add('main-home')
-    if(this.$route.name === 'index' ){
-      this.$refs['main_home'].classList.add('main-home')
-    }else{
-      this.$refs['main_home'].classList.remove('main-home')
-    }
-  },
+  // mounted() {
+  //   this.$refs['main_home'].classList.add('main-home')
+  //   console.log(this.$route)
+  //   if(this.$route.name === 'index' ){
+  //     this.$refs['main_home'].classList.add('main-home')
+  //   }else{
+  //     this.$refs['main_home'].classList.remove('main-home')
+  //   }
+  // },
 }
 </script>
 

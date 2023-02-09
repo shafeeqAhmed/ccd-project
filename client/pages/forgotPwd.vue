@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 cc_auth">
+  <div class="cc_auth">
     <h2 class="title has-text-centered">Reset password</h2>
 
     <form method="post" @submit.prevent="resetPassword">
