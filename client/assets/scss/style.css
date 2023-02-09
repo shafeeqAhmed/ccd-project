@@ -14,7 +14,8 @@ body::-webkit-scrollbar-thumb {
   background: #212529;
 }
 
-#__nuxt, #__layout {
+#__nuxt,
+#__layout {
   height: 100%;
 }
 
@@ -72,6 +73,10 @@ body::-webkit-scrollbar-thumb {
   height: 1px;
   background: #ccc;
   width: 100%;
+}
+
+.pricing {
+  height: 100%;
 }
 
 .main-home .footer {
