@@ -207,10 +207,16 @@ export default {
   async mounted() {
     this.isLoadingExchanges = true;
 
-    /*   const { exchanges } = await this.$axios.$get(
-      "https://cryptocandledata.com/api/exchanges"
-    );
-    this.exchanges = exchanges; */
+    try {
+      const { exchanges } = await this.$axios.$get(
+        "https://cryptocandledata.com/api/exchanges"
+      );
+      console.log(exchanges);
+      this.exchanges = exchanges;
+    } catch (e) {
+      console.log(e);
+    }
+
     this.isLoadingExchanges = false;
   },
   methods: {
