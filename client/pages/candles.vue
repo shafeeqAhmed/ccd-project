@@ -5,11 +5,17 @@
       <div class="container">
         <div class="align-items-center justify-content-between">
           <div>
-            <h2>Historical<span class="text-warning"> Cryptocurrency </span> Data</h2>
+            <h2>
+              Historical<span class="text-warning"> Cryptocurrency </span> Data
+            </h2>
             <p class="lead my-4">
-              Specify your parameters in the form below and get the candles in OHLC format (open, high, low, close).<br>
+              Specify your parameters in the form below and get the candles in
+              OHLC format (open, high, low, close).<br />
               Feel free to ask any question at
-              <a class="has-text-secondary hover:underline" href="mailto: cryptocandledata@gmail.com">
+              <a
+                class="has-text-secondary hover:underline"
+                href="mailto: cryptocandledata@gmail.com"
+              >
                 cryptocandledata@gmail.com
               </a>
             </p>
@@ -21,19 +27,40 @@
     <section class="p-5">
       <h3>Select your desired exchange:</h3>
       <div class="buttons is-centered pt-6">
-        <progress v-if="isLoadingExchanges" class="progress is-small is-dark" max="100">
-        </progress>
-        <div v-for="exchange in exchanges" v-else :key="exchange" style="text-align: center; margin: 3%">
-          <button class="button is-primary is-rounded has-text-primary-dark"
-            :class="selectedExchange === exchange ? 'is-secondary' : 'is-light'" @click="getData(exchange)">
-            <img style="width: 125px" :src="images[exchange.toLowerCase()]" :alt="`Logo of ${exchange}`">
+        <progress
+          v-if="isLoadingExchanges"
+          class="progress is-small is-dark"
+          max="100"
+        ></progress>
+        <div
+          v-for="exchange in exchanges"
+          v-else
+          :key="exchange"
+          style="text-align: center; margin: 3%"
+        >
+          <button
+            class="button is-primary is-rounded has-text-primary-dark"
+            :class="selectedExchange === exchange ? 'is-secondary' : 'is-light'"
+            @click="getData(exchange)"
+          >
+            <img
+              style="width: 125px"
+              :src="images[exchange.toLowerCase()]"
+              :alt="`Logo of ${exchange}`"
+            />
           </button>
         </div>
       </div>
     </section>
     <section class="px-5 py-3 content ccdSection has-background-primary">
-      <h3 class="title has-text-secondary">Select your crypto pair and interval:</h3>
-      <progress v-show="selectedExchange && !pairs.length" class="progress is-small is-dark" max="100"></progress>
+      <h3 class="title has-text-secondary">
+        Select your crypto pair and interval:
+      </h3>
+      <progress
+        v-show="selectedExchange && !pairs.length"
+        class="progress is-small is-dark"
+        max="100"
+      ></progress>
       <fieldset :disabled="!pairs.length" class="pt-6">
         <div class="px-5">
           <div class="container p-5">
@@ -42,8 +69,12 @@
                 <form>
                   <div class="form-group">
                     <label>1. Start typing...</label>
-                    <input v-model="inputSearch" class="form-control mt-3" :class="{ 'is-secondary': pairs.length }"
-                      :placeholder="pairs.length ? 'e.g. BTC or ETH' : ''" />
+                    <input
+                      v-model="inputSearch"
+                      class="form-control mt-3"
+                      :class="{ 'is-secondary': pairs.length }"
+                      :placeholder="pairs.length ? 'e.g. BTC or ETH' : ''"
+                    />
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                   </div>
                 </form>
@@ -52,7 +83,13 @@
                 <label class="label is-6 has-text-primary-light">
                   ... and choose your crypto pair
                   <select class="mt-3 form-select" v-model="selectedPair">
-                    <option v-for="(pair, i) in searchPair" :key="i" :value="pair">{{ pair }}</option>
+                    <option
+                      v-for="(pair, i) in searchPair"
+                      :key="i"
+                      :value="pair"
+                    >
+                      {{ pair }}
+                    </option>
                   </select>
                 </label>
               </div>
@@ -60,7 +97,13 @@
                 <label class="label is-6 has-text-primary-light">
                   2. Set your interval
                   <select class="mt-3 form-select" v-model="selectedInterval">
-                    <option v-for="(interval, i) in intervals" :key="i" :value="interval">{{ interval }}</option>
+                    <option
+                      v-for="(interval, i) in intervals"
+                      :key="i"
+                      :value="interval"
+                    >
+                      {{ interval }}
+                    </option>
                   </select>
                 </label>
               </div>
@@ -72,13 +115,15 @@
         Get your candles!
       </button>
       <!-- Just to add a bit of space -->
-      <div v-if="!candles" class="py-5"></div>  
+      <div v-if="!candles" class="py-5"></div>
     </section>
-
 
     <!-- <section class="px-5 py-3 content mb-0 ccdSection has-background-primary"> -->
 
-    <section v-if="candles" class="bg-dark text-light px-5 text-center text-sm-start">
+    <section
+      v-if="candles"
+      class="bg-dark text-light px-5 text-center text-sm-start"
+    >
       <div class="card bg-secondary text-light">
         <div class="card-body text-center">
           <div>
@@ -102,7 +147,11 @@
         </div>
       </div>
       <div class="py-5 mb-5">
-        <button v-if="!isCopying" class="btn btn-primary btn-lg" @click="copyCandles">
+        <button
+          v-if="!isCopying"
+          class="btn btn-primary btn-lg"
+          @click="copyCandles"
+        >
           Copy to clipboard
         </button>
         <button v-else class="btn btn-primary btn-lg" @click="copyCandles">
@@ -113,119 +162,125 @@
         </button>
       </div>
     </section>
-    <section v-else-if="isLoadingCandles" class="content ccdSection has-background-primary">
+    <section
+      v-else-if="isLoadingCandles"
+      class="content ccdSection has-background-primary"
+    >
       <progress class="progress is-small is-dark" max="100"></progress>
     </section>
     <!-- Just to add a bit of space -->
-    <div class="py-5"></div>  
+    <div class="py-5"></div>
   </div>
 </template>
 
 <script>
-const FileSaver = require('file-saver')
+const FileSaver = require("file-saver");
 export default {
   // middleware: 'auth',
   data() {
     return {
       images: {
-        binance: require('@/assets/images/binance.png'),
-        kraken: require('@/assets/images/kraken.png'),
+        binance: require("@/assets/images/binance.png"),
+        kraken: require("@/assets/images/kraken.png"),
       },
       exchanges: [],
-      inputSearch: '',
+      inputSearch: "",
       pairs: [],
       intervals: [],
-      candles: '',
-      selectedExchange: '',
-      selectedPair: '',
-      selectedInterval: '',
-      candleExchange: '',
-      candlePair: '',
-      candleInterval: '',
+      candles: "",
+      selectedExchange: "",
+      selectedPair: "",
+      selectedInterval: "",
+      candleExchange: "",
+      candlePair: "",
+      candleInterval: "",
       isLoadingExchanges: false,
       isLoadingCandles: false,
       isCopying: false,
-      service: 'website'
-    }
+      service: "website",
+    };
   },
   computed: {
     searchPair() {
       return this.pairs.filter((pair) =>
         pair.toLowerCase().includes(this.inputSearch.toLowerCase())
-      )
+      );
     },
   },
   async mounted() {
-    this.isLoadingExchanges = true
+    this.isLoadingExchanges = true;
 
-    const { exchanges } = await this.$axios.$get('http://136.144.242.140:8086/api/exchanges')
-    this.exchanges = exchanges
-    this.isLoadingExchanges = false
+    const { exchanges } = await this.$axios.$get(
+      "https://cryptocandledata.com/api/exchanges"
+    );
+    this.exchanges = exchanges;
+    this.isLoadingExchanges = false;
   },
   methods: {
     async getData(exchange) {
-      this.selectedExchange = exchange
-      this.pairs = []
-      this.candles = ''
-      this.selectedPair = ''
-      this.selectedInterval = ''
+      this.selectedExchange = exchange;
+      this.pairs = [];
+      this.candles = "";
+      this.selectedPair = "";
+      this.selectedInterval = "";
 
       const { trading_pairs: tradingPairs } = await this.$axios.$get(
-        `http://136.144.242.140:8086/api/trading_pairs?exchange=${exchange}`
-      )
-      this.pairs = tradingPairs
+        `https://cryptocandledata.com/api/trading_pairs?exchange=${exchange}`
+      );
+      this.pairs = tradingPairs;
 
       const { intervals } = await this.$axios.$get(
-        `http://136.144.242.140:8086/api/intervals?exchange=${exchange}`
-      )
-      this.intervals = intervals
+        `https://cryptocandledata.com/api/intervals?exchange=${exchange}`
+      );
+      this.intervals = intervals;
     },
     getCandle() {
-      this.candles = ''
-      this.isLoadingCandles = true
+      this.candles = "";
+      this.isLoadingCandles = true;
 
-      this.candleExchange = this.selectedExchange
-      this.candlePair = this.selectedPair
-      this.candleInterval = this.selectedInterval
+      this.candleExchange = this.selectedExchange;
+      this.candlePair = this.selectedPair;
+      this.candleInterval = this.selectedInterval;
 
-      const startDate = ''
-      const endDate = ''
+      const startDate = "";
+      const endDate = "";
 
       setTimeout(async () => {
         const { candles } = await this.$axios.$get(
-          `http://136.144.242.140:8086/api/candles?exchange=${this.selectedExchange}&tradingPair=${this.selectedPair}&interval=${this.selectedInterval}&startDateTime=${startDate}&endDateTime=${endDate}&service=${this.service}`
-        )
+          `https://cryptocandledata.com/api/candles?exchange=${this.selectedExchange}&tradingPair=${this.selectedPair}&interval=${this.selectedInterval}&startDateTime=${startDate}&endDateTime=${endDate}&service=${this.service}`
+        );
 
-        this.candles = candles
-        this.isLoadingCandles = false
-      }, 1000)
+        this.candles = candles;
+        this.isLoadingCandles = false;
+      }, 1000);
     },
     getDate(date) {
-      const year = date.getFullYear()
-      const month = date.getMonth() + 1
-      const day = date.getDate()
-      const hour = date.getHours()
-      const minutes = date.getMinutes()
-      const seconds = date.getSeconds()
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const hour = date.getHours();
+      const minutes = date.getMinutes();
+      const seconds = date.getSeconds();
 
-      return `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
+      return `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`;
     },
     copyCandles() {
-      navigator.clipboard.writeText(JSON.stringify(this.candles))
-      this.isCopying = true
-      setTimeout(() => (this.isCopying = false), 4000)
+      navigator.clipboard.writeText(JSON.stringify(this.candles));
+      this.isCopying = true;
+      setTimeout(() => (this.isCopying = false), 4000);
     },
     downloadCandles() {
       const blob = new Blob([JSON.stringify(this.candles)], {
-        type: 'text/plain;charset=utf-8',
-      })
+        type: "text/plain;charset=utf-8",
+      });
+
       FileSaver.saveAs(
         blob,
         `${this.selectedExchange}${this.selectedPair}${this.selectedInterval}.json`
-      )
+      );
     },
   },
-}
+};
 </script>
 
 <style scoped>
