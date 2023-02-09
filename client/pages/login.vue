@@ -7,14 +7,29 @@
 
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-          required>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          name="email"
+          v-model="email"
+          required
+        />
       </div>
       <div class="mb-3 mt-3">
         <label for="password" class="form-label">Password:</label>
-        <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password" placeholder="Enter password" name="password"
-          v-model="password" required>
-        <input type="checkbox" @click="showPassword = !showPassword"> Show password
+        <input
+          v-bind:type="[showPassword ? 'text' : 'password']"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+          name="password"
+          v-model="password"
+          required
+        />
+        <input type="checkbox" @click="showPassword = !showPassword" /> Show
+        password
       </div>
       <!-- <div class="form-check mb-3">
         <label class="form-check-label">
@@ -39,7 +54,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 // import Notification from '~/components/Notification'
 
 export default {
@@ -50,40 +65,41 @@ export default {
 
   data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       showPassword: false,
       error: null,
-    }
+    };
   },
 
   computed: {
     buttonLabel() {
-      return (this.showPassword) ? "Hide" : "Show";
-    }
+      return this.showPassword ? "Hide" : "Show";
+    },
   },
 
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;
     },
-    ...mapActions ({
-      logIn: 'auth/logIn',
+    ...mapActions({
+      logIn: "auth/logIn",
     }),
 
     submit() {
       const credentials = {
         email: this.email,
-        password: this.password
-      }
-      this.logIn(credentials).then(() => {
-        this.$router.push('/')
-      
-      }).catch((err) => {
-        console.log(err)
-        this.error = err.response        
-      });
+        password: this.password,
+      };
+      this.logIn(credentials)
+        .then(() => {
+          this.$router.push("/profile");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.error = err.response;
+        });
     },
   },
-}
+};
 </script>

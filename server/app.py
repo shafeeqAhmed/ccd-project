@@ -56,10 +56,12 @@ JWT = JWTManager(app)
 db_handler = MongoDBHandler()  # Instance DB Handler
 
 
+
 # ROUTES
 @app.route('/')
 def hello_world():
-    return '<p>Hello universe from flask!</p>'
+    return '<p>Hello universe from flask testing!</p>'
+
 
 @app.route('/test-send-email', methods=['GET'])
 def test_send_email():
@@ -344,7 +346,7 @@ def login():
         logger.error(f'login - {response}')
         return Response(response=json.dumps(response), status=status,
                         mimetype='application/json')
-    
+
     if email and password:
         # Retrieve user details from the DB
         # query_params = {a:data[a] for a in ['email'] if a in data}  # TEST this (try/except this line?)
@@ -361,6 +363,8 @@ def login():
 
         # Check if password is correct
         # if not pbkdf2_sha256.verify(data['password'], user['password']):
+
+
         if not pbkdf2_sha256.verify(password, user['password']):
             response = 'Incorrect password!'
             status = 400
@@ -372,7 +376,7 @@ def login():
             # jwt = create_access_token(identity=data['email'])
             jwt = create_access_token(identity=email)
             updated_data = {'jwt': jwt}
-            db_handler.update(query_params=query_params, updated_data=updated_data)
+            output=db_handler.update(query_params=query_params, updated_data=updated_data)
             response = jwt
             status = 200
             logger.debug(f'login - Success - {user}')
@@ -383,7 +387,7 @@ def login():
             logger.error(f'login - {err}')
             return Response(response=json.dumps(err), status=status,
                         mimetype='application/json')
-            
+
     response = 'No email and/or password provided'
     status = 400
     logger.error(f'login - {response}')
@@ -450,7 +454,7 @@ def get_user():
         logger.error(f'get_user - {response}')
         return Response(response=json.dumps(response), status=status,
                         mimetype='application/json')
-    
+
 
     jwt = request.args.get('jwt', default=None, type=str)
 
@@ -549,7 +553,7 @@ def signup():
         logger.error(f'signup - {response}')
         return Response(response=json.dumps(response), status=status,
                         mimetype='application/json')
-    
+
     # Encrypt password
     password = pbkdf2_sha256.encrypt(password)
 
@@ -562,7 +566,7 @@ def signup():
         logger.error(f'signup - {response}')
         return Response(response=json.dumps(response), status=status,
                         mimetype='application/json')
-    
+
     insert_data = {'username': username, 'email': email, 'password': password}
     response = db_handler.insert(insert_data)
 
@@ -731,7 +735,7 @@ def select_plan(user_email: str, amount_paid: int):
 
     try:
         pricing_dict = doc['pricePerPlan']
-    
+
     except Exception as err:
         status = 400
         logger.error(f'select_plan - {err}')
@@ -782,7 +786,7 @@ def get_pricing():
     # Retrieve user details from the DB
     query_params = {'docType': 'config'}
     doc = db_handler.read(query_params=query_params)
-    
+
     try:
         pricing = doc['pricePerPlan']
 
