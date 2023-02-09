@@ -543,9 +543,9 @@ def signup():
 
     try:
         body = request.get_json()
-        username = body['username']
-        email = body['email']
-        password = body['password']
+        username =body['username']
+        email =body['email']
+        password =body['password']
 
     except Exception as err:
         response = err
@@ -582,12 +582,11 @@ def signup():
     # Send email with reset password link including emailVerificationJWT
     msg = Message()
     msg.subject = "Email Verification for Crypto Candle Data"
-
     msg.recipients = [email]
-    msg.sender = app.config.get('MAIL_USERNAME')
+    msg.sender = os.getenv('MAIL_USERNAME')
     url = os.path.join(os.getenv('BASE_URL'), 'emailVerification')
     msg.body = f"Please click the link to validate your email: {url}/?token={email_verif_jwt}"
-    mail.send(msg)
+    #mail.send(msg)
 
     status = 200
     logger.debug('signup - Success')
