@@ -4,41 +4,41 @@
     <div class="cc_auth">
       <h2 class="title has-text-centered">Reset password</h2>
 
-    <form method="post" @submit.prevent="resetPassword">
-      <!-- <Notification :message="error" v-if="error" /> -->
-      <div class="mb-3 mt-3">
-        <p>
-          Lost your password? Please enter your email address. You will receive
-          a link to create a new password via email.
-        </p>
-        <label for="email" class="form-label">Email:</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Enter email"
-          name="email"
-          v-model="email"
-          required
-        />
+      <form method="post" @submit.prevent="resetPassword">
+        <!-- <Notification :message="error" v-if="error" /> -->
+        <div class="mb-3 mt-3">
+          <p>
+            Lost your password? Please enter your email address. You will
+            receive a link to create a new password via email.
+          </p>
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            v-model="email"
+            required
+          />
+        </div>
+        <b-button variant="primary" class="w-100" type="submit"
+          >Reset password</b-button
+        >
+      </form>
+      <div class="d-flex align-items-center w-100 mt-2">
+        <div class="divider"></div>
+        <p class="m-0 m-2">or</p>
+        <div class="divider"></div>
       </div>
-      <b-button variant="primary" class="w-100" type="submit"
-        >Reset password</b-button
-      >
-    </form>
-    <div class="d-flex align-items-center w-100 mt-2">
-      <div class="divider"></div>
-      <p class="m-0 m-2">or</p>
-      <div class="divider"></div>
+      <div class="mt-2 text-center">
+        <p>
+          <NuxtLink to="/login" class="text-primary">Login Here</NuxtLink>
+        </p>
+      </div>
+      <Footer />
     </div>
-    <div class="mt-2 text-center">
-      <p>
-        <NuxtLink to="/login" class="text-primary">Login Here</NuxtLink>
-      </p>
-    </div>
-    <Footer />
   </div>
-
 </template>
 
 <script>
@@ -49,7 +49,7 @@ export default {
   // components: {
   //     Notification,
   // },
-  layout:"authlayout",
+  layout: "authlayout",
   data() {
     return {
       email: "",
