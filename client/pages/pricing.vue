@@ -14,35 +14,10 @@
       <h2 class="display-4 mb-5 text-center">Pricing</h2>
       <div class="py-2 container">
         <div class="row card-deck mb-3 text-center">
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Free</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title">
-                  0$<small class="text-muted"></small>
-                </h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>
-                    <b-icon icon="check-lg"></b-icon>
-                    5 API calls/min
-                  </li>
-                  <li>
-                    <b-icon icon="check-lg"></b-icon>
-                    Frequently updated database
-                  </li>
-                  <li>
-                    <b-icon icon="x-lg"></b-icon>
-                    Email support
-                  </li>
-                </ul>
-              </div>
-              <div v-if="authenticated">
-                <div class="card-footer bg-transparent">
-                  <b-button disabled variant="outline-primary"
-                    >Current plan</b-button
-                  >
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal">Free</h4>
                 </div>
                 <div class="card-body">
                   <h1 class="card-title pricing-card-title">
@@ -65,12 +40,38 @@
                 </div>
                 <div v-if="authenticated">
                   <div class="card-footer bg-transparent">
-                    <b-button disabled variant="outline-primary">Current plan</b-button>
+                    <b-button disabled variant="outline-primary"
+                      >Current plan</b-button
+                    >
                   </div>
-                </div>
-                <div v-else>
-                  <div class="card-footer bg-transparent">
-                    <a class="btn btn-outline-primary text-decoration-none" href="/signup" role="button">Sign up</a>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">
+                      0$<small class="text-muted"></small>
+                    </h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>
+                        <b-icon icon="check-lg"></b-icon>
+                        5 API calls/min
+                      </li>
+                      <li>
+                        <b-icon icon="check-lg"></b-icon>
+                        Frequently updated database
+                      </li>
+                      <li>
+                        <b-icon icon="x-lg"></b-icon>
+                        Email support
+                      </li>
+                    </ul>
+                  </div>
+                  <div v-if="authenticated">
+                    <div class="card-footer bg-transparent">
+                      <b-button disabled variant="outline-primary">Current plan</b-button>
+                    </div>
+                  </div>
+                  <div v-else>
+                    <div class="card-footer bg-transparent">
+                      <a class="btn btn-outline-primary text-decoration-none" href="/signup" role="button">Sign up</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -109,7 +110,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Advanced Plan -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
@@ -143,10 +143,8 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
-
     </div>
     <Footer />
   </div>
