@@ -7,13 +7,27 @@
 
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-          required />
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          name="email"
+          v-model="email"
+          required
+        />
       </div>
       <div class="mb-3 mt-3">
         <label for="password" class="form-label">Password:</label>
-        <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password"
-          placeholder="Enter password" name="password" v-model="password" required />
+        <input
+          v-bind:type="[showPassword ? 'text' : 'password']"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+          name="password"
+          v-model="password"
+          required
+        />
         <input type="checkbox" @click="showPassword = !showPassword" /> Show
         password
       </div>
@@ -32,11 +46,11 @@
     <div class="mt-2 d-flex align-items-center justify-content-between w-100">
       <p>
         Don't have an account?
-        <a class="text-primary" href="/signup">Sign up</a>
+        <NuxtLink to="/signup" class="text-primary">Sign up</NuxtLink>
       </p>
       <p>
         Forgot password?
-        <a class="text-primary" href="/forgotPwd">Reset it</a>
+        <NuxtLink to="/forgotPwd" class="text-primary">Reset it</NuxtLink>
       </p>
     </div>
   </div>

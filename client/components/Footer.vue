@@ -1,21 +1,26 @@
 <template>
   <footer class="footer bg-dark text-white">
     <div>
-      <p class="lead px-5"> {{ new Date().getFullYear() }} - Crypto Candle Data</p>
+      <p class="lead px-5">
+        {{ new Date().getFullYear() }} - Crypto Candle Data
+      </p>
     </div>
     <div>
       <ul>
         <li>
-          <a href="/terms-and-conditions"> Terms and Conditions </a>
+          <NuxtLink to="/terms-and-conditions"> Terms and Conditions </NuxtLink>
         </li>
         <li>
-          <a href="/privacy-policy"> Privacy Policy </a>
+          <NuxtLink to="/privacy-policy"> Privacy Policy </NuxtLink>
         </li>
       </ul>
     </div>
     <div>
       <p>
-        <a class="px-5 text-underline-hover" href="mailto: cryptocandledata@gmail.com">
+        <a
+          class="px-5 text-underline-hover"
+          href="mailto: cryptocandledata@gmail.com"
+        >
           cryptocandledata@gmail.com
         </a>
       </p>
@@ -24,9 +29,7 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>

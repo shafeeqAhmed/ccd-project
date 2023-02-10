@@ -7,19 +7,41 @@
 
       <div class="mb-3 mt-3">
         <label for="username" class="form-label">Username:</label>
-        <input type="username" class="form-control" id="username" placeholder="Enter username" name="username"
-          v-model="username" required>
+        <input
+          type="username"
+          class="form-control"
+          id="username"
+          placeholder="Enter username"
+          name="username"
+          v-model="username"
+          required
+        />
       </div>
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-          required>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          name="email"
+          v-model="email"
+          required
+        />
       </div>
       <div class="mb-3 mt-3">
         <label for="password" class="form-label">Password:</label>
-        <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password" placeholder="Enter password" name="password"
-          v-model="password" required>
-        <input type="checkbox" @click="showPassword = !showPassword"> Show password
+        <input
+          v-bind:type="[showPassword ? 'text' : 'password']"
+          class="form-control"
+          id="password"
+          placeholder="Enter password"
+          name="password"
+          v-model="password"
+          required
+        />
+        <input type="checkbox" @click="showPassword = !showPassword" /> Show
+        password
       </div>
       <b-button variant="primary" class="w-100" type="submit">Sign up</b-button>
     </form>
@@ -30,15 +52,15 @@
     </div>
     <div class="mt-2 text-center">
       <p>
-        Already got an account?
-        <a class="text-primary" href="/login">Login</a>
+        Already have an account?
+        <NuxtLink to="/login" class="text-primary">Login</NuxtLink>
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 // import Notification from '~/components/Notification'
 
 export default {
@@ -48,18 +70,18 @@ export default {
   // middleware: 'guest',
   data() {
     return {
-      username: '',
-      email: '',
-      password: '',
+      username: "",
+      email: "",
+      password: "",
       showPassword: false,
       error: null,
-    }
+    };
   },
 
   computed: {
     buttonLabel() {
-      return (this.showPassword) ? "Hide" : "Show";
-    }
+      return this.showPassword ? "Hide" : "Show";
+    },
   },
 
   methods: {
@@ -67,24 +89,25 @@ export default {
       this.showPassword = !this.showPassword;
     },
 
-    ...mapActions ({
-      signUp: 'auth/signUp',
+    ...mapActions({
+      signUp: "auth/signUp",
     }),
 
     submit() {
       const credentials = {
         username: this.username,
         email: this.email,
-        password: this.password
-      }
-      this.signUp(credentials).then(() => {
-        this.$router.push('/pendingEmailVerification')
-
-      }).catch((err) => {
-        console.log(err)
-        this.error = err.response
-      });
+        password: this.password,
+      };
+      this.signUp(credentials)
+        .then(() => {
+          this.$router.push("/pendingEmailVerification");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.error = err.response;
+        });
     },
   },
-}
+};
 </script>

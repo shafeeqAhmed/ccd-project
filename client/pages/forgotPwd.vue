@@ -5,14 +5,24 @@
     <form method="post" @submit.prevent="resetPassword">
       <!-- <Notification :message="error" v-if="error" /> -->
       <div class="mb-3 mt-3">
-        <p>Lost your password? Please enter your email address. You will receive a link
-          to create a new password via email.
+        <p>
+          Lost your password? Please enter your email address. You will receive
+          a link to create a new password via email.
         </p>
         <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-          required>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          name="email"
+          v-model="email"
+          required
+        />
       </div>
-      <b-button variant="primary" class="w-100" type="submit">Reset password</b-button>
+      <b-button variant="primary" class="w-100" type="submit"
+        >Reset password</b-button
+      >
     </form>
     <div class="d-flex align-items-center w-100 mt-2">
       <div class="divider"></div>
@@ -21,7 +31,7 @@
     </div>
     <div class="mt-2 text-center">
       <p>
-        <a class="text-primary" href="/login">Login Here</a>
+        <NuxtLink to="/login" class="text-primary">Login Here</NuxtLink>
       </p>
     </div>
   </div>
@@ -38,22 +48,22 @@ export default {
 
   data() {
     return {
-      email: '',
+      email: "",
       error: null,
-    }
+    };
   },
 
   methods: {
     async resetPassword() {
       try {
-        await this.$axios.post('reset-password', {
-          email: this.email
-        })
-        this.$router.push('/');
+        await this.$axios.post("reset-password", {
+          email: this.email,
+        });
+        this.$router.push("/");
       } catch (e) {
-        console.log(e)
+        console.log(e);
       }
     },
   },
-}
+};
 </script>
