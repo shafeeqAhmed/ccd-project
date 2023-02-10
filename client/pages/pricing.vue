@@ -42,105 +42,109 @@
                   >Current plan</b-button
                 >
               </div>
-            </div>
-            <div v-else>
-              <div class="card-footer bg-transparent">
-                <a
-                  class="btn btn-outline-primary text-decoration-none"
-                  href="/signup"
-                  role="button"
-                  >Sign up</a
-                >
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  0$<small class="text-muted"></small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    5 API calls/min
+                  </li>
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    Frequently updated database
+                  </li>
+                  <li>
+                    <b-icon icon="x-lg"></b-icon>
+                    Email support
+                  </li>
+                </ul>
+              </div>
+              <div v-if="authenticated">
+                <div class="card-footer bg-transparent">
+                  <b-button disabled variant="outline-primary">Current plan</b-button>
+                </div>
+              </div>
+              <div v-else>
+                <div class="card-footer bg-transparent">
+                  <a class="btn btn-outline-primary text-decoration-none" href="/signup" role="button">Sign up</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Basic Plan -->
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Basic</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">
-                {{ prices.Basic }}$<small class="text-muted">/ month</small>
-              </h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>
-                  <b-icon icon="check-lg"></b-icon>
-                  50 API calls/min
-                </li>
-                <li>
-                  <b-icon icon="check-lg"></b-icon>
-                  Frequently updated database
-                </li>
-                <li>
-                  <b-icon icon="check-lg"></b-icon>
-                  Basic email support
-                </li>
-              </ul>
-            </div>
-            <div v-if="authenticated" class="card-footer bg-transparent">
-              <b-button variant="outline-primary" @click="selectPlan('Basic')"
-                >Select</b-button
-              >
-            </div>
-            <div v-else class="card-footer bg-transparent">
-              <a
-                class="btn btn-outline-primary text-decoration-none"
-                href="/signup"
-                role="button"
-                >Sign up</a
-              >
+          <!-- Basic Plan -->
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Basic</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  {{ prices.Basic }}$<small class="text-muted">/ month</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    50 API calls/min
+                  </li>
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    Frequently updated database
+                  </li>
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    Basic email support
+                  </li>
+                </ul>
+              </div>
+              <div v-if="authenticated" class="card-footer bg-transparent">
+                <b-button variant="outline-primary" @click="selectPlan('Basic')">Select</b-button>
+              </div>
+              <div v-else class="card-footer bg-transparent">
+                <a class="btn btn-outline-primary text-decoration-none" href="/signup" role="button">Sign up</a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Advanced Plan -->
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Advanced</h4>
-            </div>
-            <div class="card-body">
-              <h1 class="card-title pricing-card-title">
-                {{ prices.Advanced }}$<small class="text-muted">/ month</small>
-              </h1>
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>
-                  <b-icon icon="check-lg"></b-icon>
-                  150 API calls/min
-                </li>
-                <li>
-                  <b-icon icon="check-lg"></b-icon>
-                  Frequently updated database
-                </li>
-                <li>
-                  <b-icon icon="check-lg"></b-icon>
-                  Priority email support
-                </li>
-              </ul>
-            </div>
-            <div v-if="authenticated" class="card-footer bg-transparent">
-              <b-button
-                variant="outline-primary"
-                @click="selectPlan('Advanced')"
-                >Select</b-button
-              >
-            </div>
-            <div v-else class="card-footer bg-transparent">
-              <a
-                class="btn btn-outline-primary text-decoration-none"
-                href="/signup"
-                role="button"
-                >Sign up</a
-              >
+          <!-- Advanced Plan -->
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Advanced</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  {{ prices.Advanced }}$<small class="text-muted">/ month</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    150 API calls/min
+                  </li>
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    Frequently updated database
+                  </li>
+                  <li>
+                    <b-icon icon="check-lg"></b-icon>
+                    Priority email support
+                  </li>
+                </ul>
+              </div>
+              <div v-if="authenticated" class="card-footer bg-transparent">
+                <b-button variant="outline-primary" @click="selectPlan('Advanced')">Select</b-button>
+              </div>
+              <div v-else class="card-footer bg-transparent">
+                <a class="btn btn-outline-primary text-decoration-none" href="/signup" role="button">Sign up</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -148,6 +152,7 @@
 import { mapGetters } from "vuex";
 
 export default {
+  layout: "authlayout",
   data() {
     return {
       loading: false,
