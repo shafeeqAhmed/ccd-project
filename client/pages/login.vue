@@ -1,9 +1,11 @@
 <template>
-  <div class="cc_auth">
-    <h2 class="title has-text-centered">Login</h2>
+  <div class="auth_wrapper">
+    <Navbar />
+    <div class="cc_auth">
+      <h2 class="title has-text-centered">Login</h2>
 
-    <form method="post" @submit.prevent="submit">
-      <!-- <Notification :message="error" v-if="error" /> -->
+      <form method="post" @submit.prevent="submit">
+        <!-- <Notification :message="error" v-if="error" /> -->
 
       <div class="mb-3 mt-3">
         <label for="email" class="form-label">Email:</label>
@@ -53,7 +55,9 @@
         <NuxtLink to="/forgotPwd" class="text-primary">Reset it</NuxtLink>
       </p>
     </div>
+    <Footer />
   </div>
+
 </template>
 
 <script>
@@ -65,6 +69,7 @@ export default {
   // components: {
   //     Notification,
   // },
+  layout:"authlayout",
 
   data() {
     return {

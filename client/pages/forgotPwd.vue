@@ -1,6 +1,8 @@
 <template>
-  <div class="cc_auth">
-    <h2 class="title has-text-centered">Reset password</h2>
+  <div class="auth_wrapper">
+    <Navbar />
+    <div class="cc_auth">
+      <h2 class="title has-text-centered">Reset password</h2>
 
     <form method="post" @submit.prevent="resetPassword">
       <!-- <Notification :message="error" v-if="error" /> -->
@@ -34,7 +36,9 @@
         <NuxtLink to="/login" class="text-primary">Login Here</NuxtLink>
       </p>
     </div>
+    <Footer />
   </div>
+
 </template>
 
 <script>
@@ -45,7 +49,7 @@ export default {
   // components: {
   //     Notification,
   // },
-
+  layout:"authlayout",
   data() {
     return {
       email: "",

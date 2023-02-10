@@ -1,5 +1,7 @@
 <template>
-  <div class="cc_auth">
+  <div class="auth_wrapper">
+    <Navbar />
+    <div class="cc_auth">
     <h2 class="title has-text-centered">Sign up</h2>
 
     <form method="post" @submit.prevent="submit">
@@ -56,7 +58,10 @@
         <NuxtLink to="/login" class="text-primary">Login</NuxtLink>
       </p>
     </div>
+    </div>
+    <Footer />
   </div>
+
 </template>
 
 <script>
@@ -68,6 +73,7 @@ export default {
   //   Notification,
   // },
   // middleware: 'guest',
+  layout:"authlayout",
   data() {
     return {
       username: "",
