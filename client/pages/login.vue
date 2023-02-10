@@ -56,8 +56,8 @@
       </p>
     </div>
     <Footer />
+    </div>
   </div>
-
 </template>
 
 <script>
