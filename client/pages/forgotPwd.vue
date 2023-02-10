@@ -36,8 +36,8 @@
           <NuxtLink to="/login" class="text-primary">Login Here</NuxtLink>
         </p>
       </div>
-      <Footer />
     </div>
+    <Footer />
   </div>
 </template>
 

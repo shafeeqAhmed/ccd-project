@@ -55,8 +55,8 @@
           <NuxtLink to="/forgotPwd" class="text-primary">Reset it</NuxtLink>
         </p>
       </div>
-      <Footer />
     </div>
+    <Footer />
   </div>
 </template>
 
