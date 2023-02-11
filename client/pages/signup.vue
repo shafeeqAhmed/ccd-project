@@ -2,62 +2,41 @@
   <div class="auth_wrapper">
     <Navbar />
     <div class="cc_auth">
-    <h2 class="title has-text-centered">Sign up</h2>
+      <h2 class="title has-text-centered">Sign up</h2>
 
-    <form method="post" @submit.prevent="submit">
-      <!-- <Notification v-if="error" :message="error" /> -->
+      <form method="post" @submit.prevent="submit">
+        <!-- <Notification v-if="error" :message="error" /> -->
 
-      <div class="mb-3 mt-3">
-        <label for="username" class="form-label">Username:</label>
-        <input
-          type="username"
-          class="form-control"
-          id="username"
-          placeholder="Enter username"
-          name="username"
-          v-model="username"
-          required
-        />
+        <div class="mb-3 mt-3">
+          <label for="username" class="form-label">Username:</label>
+          <input type="username" class="form-control" id="username" placeholder="Enter username" name="username"
+            v-model="username" required />
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
+            required />
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="password" class="form-label">Password:</label>
+          <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password"
+            placeholder="Enter password" name="password" v-model="password" required />
+          <input type="checkbox" @click="showPassword = !showPassword" /> Show
+          password
+        </div>
+        <button class="primary-btn w-100" type="submit">Sign up</button>
+      </form>
+      <div class="d-flex align-items-center w-100 mt-2">
+        <div class="divider"></div>
+        <p class="m-0 m-2">or</p>
+        <div class="divider"></div>
       </div>
-      <div class="mb-3 mt-3">
-        <label for="email" class="form-label">Email:</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="Enter email"
-          name="email"
-          v-model="email"
-          required
-        />
+      <div class="mt-2 text-center">
+        <p>
+          Already have an account?
+          <NuxtLink to="/login" class="">Login</NuxtLink>
+        </p>
       </div>
-      <div class="mb-3 mt-3">
-        <label for="password" class="form-label">Password:</label>
-        <input
-          v-bind:type="[showPassword ? 'text' : 'password']"
-          class="form-control"
-          id="password"
-          placeholder="Enter password"
-          name="password"
-          v-model="password"
-          required
-        />
-        <input type="checkbox" @click="showPassword = !showPassword" /> Show
-        password
-      </div>
-      <b-button variant="primary" class="w-100" type="submit">Sign up</b-button>
-    </form>
-    <div class="d-flex align-items-center w-100 mt-2">
-      <div class="divider"></div>
-      <p class="m-0 m-2">or</p>
-      <div class="divider"></div>
-    </div>
-    <div class="mt-2 text-center">
-      <p>
-        Already have an account?
-        <NuxtLink to="/login" class="text-primary">Login</NuxtLink>
-      </p>
-    </div>
     </div>
     <Footer />
   </div>
@@ -73,7 +52,7 @@ export default {
   //   Notification,
   // },
   // middleware: 'guest',
-  layout:"authlayout",
+  layout: "authlayout",
   data() {
     return {
       username: "",

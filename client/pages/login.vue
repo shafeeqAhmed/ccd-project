@@ -9,27 +9,13 @@
 
         <div class="mb-3 mt-3">
           <label for="email" class="form-label">Email:</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Enter email"
-            name="email"
-            v-model="email"
-            required
-          />
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
+            required />
         </div>
         <div class="mb-3 mt-3">
           <label for="password" class="form-label">Password:</label>
-          <input
-            v-bind:type="[showPassword ? 'text' : 'password']"
-            class="form-control"
-            id="password"
-            placeholder="Enter password"
-            name="password"
-            v-model="password"
-            required
-          />
+          <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password"
+            placeholder="Enter password" name="password" v-model="password" required />
           <input type="checkbox" @click="showPassword = !showPassword" /> Show
           password
         </div>
@@ -38,7 +24,7 @@
           <input class="form-check-input" type="checkbox" name="remember"> Remember me
         </label>
       </div> -->
-        <b-button variant="primary" class="w-100" type="submit">Login</b-button>
+        <button class="w-100 primary-btn" type="submit">Login</button>
       </form>
       <div class="d-flex align-items-center w-100 mt-2">
         <div class="divider"></div>
@@ -48,11 +34,11 @@
       <div class="mt-2 d-flex align-items-center justify-content-between w-100">
         <p>
           Don't have an account?
-          <NuxtLink to="/signup" class="text-primary">Sign up</NuxtLink>
+          <NuxtLink to="/signup" class="">Sign up</NuxtLink>
         </p>
         <p>
           Forgot password?
-          <NuxtLink to="/forgotPwd" class="text-primary">Reset it</NuxtLink>
+          <NuxtLink to="/forgotPwd" class="">Reset it</NuxtLink>
         </p>
       </div>
     </div>

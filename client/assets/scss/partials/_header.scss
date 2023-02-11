@@ -1,0 +1,19 @@
+.header{
+    background: #0d111f;
+    min-height: 70px;
+    #navmenu{
+        ul{
+            li{
+                a{
+                    text-decoration: none;
+                    font-size: 16px;
+                    color: #fff;
+                    &:hover{
+                        text-decoration: none;
+                        color: $primary_color;
+                    }
+                }
+            }
+        }
+    }
+}
