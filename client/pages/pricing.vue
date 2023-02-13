@@ -65,7 +65,7 @@
               </div>
               <div class="card-body">
                 <h1 class="card-title pricing-card-title">
-                  {{ prices.Basic }}$<small class="text-muted">/ month</small>
+                  {{ prices?.Basic }}$<small class="text-muted">/ month</small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
                   <li>
@@ -102,7 +102,7 @@
               </div>
               <div class="card-body">
                 <h1 class="card-title pricing-card-title">
-                  {{ prices.Advanced }}$<small class="text-muted"
+                  {{ prices?.Advanced }}$<small class="text-muted"
                     >/ month</small
                   >
                 </h1>
@@ -168,7 +168,7 @@ export default {
   },
 
   async mounted() {
-    /* try {
+    /*  try {
       const prices = await this.$axios.get("pricing");
       this.prices = prices.data;
       const res = await this.$axios.get("config");
