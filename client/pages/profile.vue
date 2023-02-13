@@ -1,5 +1,5 @@
 <template>
-  <div class="auth_wrapper">
+  <div class="auth_wrapper profile">
     <Navbar />
     <div class="mt-5 p-5 w-100">
       <h2 class="display-4 text-center">My Profile</h2>
@@ -38,7 +38,6 @@
     </div>
     <Footer />
   </div>
-
 </template>
 
 <script>

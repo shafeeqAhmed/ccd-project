@@ -1,5 +1,6 @@
 <template>
-  <div class="auth_wrapper">
+  <div class="auth_wrapper auth">
+    <div class="overlay"></div>
     <div class="cc_auth">
       <h2 class="title has-text-centered">Sign up</h2>
 
