@@ -1,5 +1,5 @@
 <template>
-  <nav class="header navbar navbar-expand-lg">
+  <nav class="header navbar navbar-expand-lg"  ref="headRef">
     <div class="container">
       <!-- <a href="#" class="navbar-brand">Logo here</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -57,7 +57,6 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      isActive: false,
     };
   },
   computed: {
@@ -74,6 +73,18 @@ export default {
     async logout() {
       this.logOut();
     },
+  },
+  mounted(){
+    var sticky = this.$refs['headRef'];
+    window.addEventListener("scroll", () => {
+        var curr = window.pageYOffset;
+
+        if (curr >= 200) {
+            sticky.classList.add("sticky");
+        }else{
+            sticky.classList.remove("sticky");
+        }
+    });
   },
 };
 </script>

@@ -30,6 +30,8 @@
   min-height: 70px;
   position: relative;
   z-index: 99;
+  width: 100%;
+  transition: 0.5s all ease-in-out;
 }
 .header #navmenu ul li a {
   text-decoration: none;
@@ -39,6 +41,12 @@
 .header #navmenu ul li a:hover {
   text-decoration: none;
   color: #7a60e0;
+}
+
+.sticky.header {
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 @media (max-width: 1000px) {
