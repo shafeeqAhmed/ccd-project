@@ -650,8 +650,10 @@ def reset_password():
 
     # data = request.json
     # print('/reset-password data ' + str(data), flush=True)
-    email = request.args.get('email', default=None, type=str)
-
+    body = request.get_json()
+    email = body['email']
+    #email = request.args.get('email', default=None, type=str)
+   
     if email:
         # query_params = {a:data[a] for a in ['email'] if a in data}
         query_params = {'email': email}
@@ -675,14 +677,14 @@ def reset_password():
     msg.subject = "Password Reset Request for Crypto Candle Data"
 
     msg.recipients = [email]
-    msg.sender = app.config.get('MAIL_USERNAME')
+    msg.sender = os.getenv('MAIL_USERNAME')
     url = os.path.join(os.getenv('BASE_URL'), 'resetPwd')
     msg.body = f"This is the link to reset your password: {url}/?token={reset_pwd_jwt}"
-    res = mail.send(msg)
+    #res = mail.send(msg)
 
     status = 200
     logger.debug('reset_password - Success')
-    return Response(response=json.dumps(res), status=status,
+    return Response(response=json.dumps( 'success'), status=status,
                     mimetype='application/json')
 
 

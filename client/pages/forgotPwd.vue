@@ -12,8 +12,15 @@
             receive a link to create a new password via email.
           </p>
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-            required />
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            v-model="email"
+            required
+          />
         </div>
         <button class="w-100 primary-btn" type="submit">Reset password</button>
       </form>
@@ -54,8 +61,23 @@ export default {
         await this.$axios.post("reset-password", {
           email: this.email,
         });
-        this.$router.push("/");
+
+        this.$notify({
+          group: "auth",
+          type: "success",
+          title: "Success!",
+          text: `Reset Mail Sent Successfully!`,
+        });
+        setTimeout(async () => {
+          this.$router.push("/login");
+        }, 1700);
       } catch (e) {
+        this.$notify({
+          group: "auth",
+          type: "error",
+          title: "Error!",
+          text: "User (email) does not exists!",
+        });
         console.log(e);
       }
     },
