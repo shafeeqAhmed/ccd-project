@@ -25,7 +25,7 @@ export default {
   plugins: [
     { src: "~/plugins/bootstrap.js", mode: "client" },
     { src: "~/plugins/vue-stripe.js", ssr: false },
-    { src: '~/plugins/vue-notification.js', ssr: false },
+    { src: "~/plugins/vue-notification.js", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
