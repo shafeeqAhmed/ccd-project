@@ -1,13 +1,13 @@
-@import './partials/_variables.scss';
-@import './partials/_body.scss';
-@import './partials/_header.scss';
-@import './partials/_footer.scss';
+@import "./partials/_variables.scss";
+@import "./partials/_body.scss";
+@import "./partials/_header.scss";
+@import "./partials/_footer.scss";
 
 html {
   height: 100%;
 }
 
-body{
+body {
   width: 100%;
   height: 100%;
   &::-webkit-scrollbar {
@@ -60,23 +60,23 @@ body{
     position: relative;
   }
 }
-.auth_wrapper{
+.auth_wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  .header{
+  .header {
     width: 100%;
   }
 }
-@media (max-width:767px) {
-.footer{
-  flex-direction: column;
-  padding: 10px 0px;
-  height: auto;
-  p{
-    margin: 10px;
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    padding: 10px 0px;
+    height: auto;
+    p {
+      margin: 10px;
+    }
   }
-}
 }

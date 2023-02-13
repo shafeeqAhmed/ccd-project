@@ -9,13 +9,27 @@
 
         <div class="mb-3 mt-3">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-            required />
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            v-model="email"
+            required
+          />
         </div>
         <div class="mb-3 mt-3">
           <label for="password" class="form-label">Password:</label>
-          <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password"
-            placeholder="Enter password" name="password" v-model="password" required />
+          <input
+            v-bind:type="[showPassword ? 'text' : 'password']"
+            class="form-control"
+            id="password"
+            placeholder="Enter password"
+            name="password"
+            v-model="password"
+            required
+          />
           <input type="checkbox" @click="showPassword = !showPassword" /> Show
           password
         </div>
@@ -87,10 +101,22 @@ export default {
       };
       this.logIn(credentials)
         .then(() => {
+          this.$notify({
+            group: "auth",
+            type: "success",
+            title: "Success!",
+            text: `Login Successfull!`,
+          });
+
           this.$router.push("/profile");
         })
         .catch((err) => {
-          console.log(err);
+          this.$notify({
+            group: "auth",
+            type: "error",
+            title: "Error!",
+            text: err.response.data,
+          });
           this.error = err.response;
         });
     },

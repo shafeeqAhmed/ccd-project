@@ -19,16 +19,14 @@ export default {
   // ],
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '~/assets/css/bootstrap.min.css',
-    '~/assets/scss/style.css',
-  ],
+  css: ["~/assets/css/bootstrap.min.css", "~/assets/scss/style.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [
-      {src: '~/plugins/bootstrap.js', mode: 'client'},
-      {src: '~/plugins/vue-stripe.js', ssr: false },
-    ],
+  plugins: [
+    { src: "~/plugins/bootstrap.js", mode: "client" },
+    { src: "~/plugins/vue-stripe.js", ssr: false },
+    { src: '~/plugins/vue-notification.js', ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

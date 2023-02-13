@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 export const state = () => ({
   token: "null",
   user: {},
@@ -22,15 +24,13 @@ export const actions = {
   },
 
   async logIn({ dispatch }, credentials) {
-    console.log("store - logIn");
-    console.log(credentials);
     let response = await this.$axios.post("login", credentials);
     console.log("store - logIn " - response.data);
     return dispatch("attempt", response.data);
   },
 
   async attempt({ commit }, token) {
-    console.log("store - attempt");
+    console.log("store - attempt ");
 
     if (!token) {
       console.log("store - attempt - No token provided");
@@ -46,13 +46,20 @@ export const actions = {
           Authorization: "Bearer " + token,
         },
       });
-      // console.log("store - attempt - ", response.data);
+
       localStorage.setItem("USER_TOKEN", token);
       commit("SET_USER", response.data);
     } catch (error) {
       console.log("store - attempt - Something went wrong - ", error);
       commit("SET_TOKEN", null);
       commit("SET_USER", null);
+
+      Vue.notify({
+        group: "auth",
+        type: "error",
+        title: "Error!",
+        text: `Something Went Wrong!`,
+      });
     }
   },
 

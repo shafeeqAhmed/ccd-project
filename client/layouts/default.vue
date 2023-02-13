@@ -1,40 +1,41 @@
 <template>
   <div class="main-layout" ref="main_home">
     <Navbar />
+
     <Nuxt />
+    <Notify />
     <Footer />
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-
+import { mapActions, mapGetters } from "vuex";
+import Notify from "~/components/notify";
 export default {
   data() {
-    return {}
+    return {};
+  },
+  components: { Notify },
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
   },
 
- computed: {
-    ...mapGetters({
-      authenticated: 'auth/authenticated',
-      user: 'auth/user'
-    }),
- },
-
   mounted() {
-    this.keepUserLoggedIn()
+    this.keepUserLoggedIn();
   },
 
   methods: {
     ...mapActions({
-      attempt: 'auth/attempt',
+      attempt: "auth/attempt",
     }),
 
     async keepUserLoggedIn() {
-      await this.attempt(localStorage.getItem('USER_TOKEN'))
-      console.log('default - ', this.user)
+      await this.attempt(localStorage.getItem("USER_TOKEN"));
+      console.log("default - ", this.user);
     },
-
   },
   // mounted() {
   //   this.$refs['main_home'].classList.add('main-home')
@@ -45,6 +46,5 @@ export default {
   //     this.$refs['main_home'].classList.remove('main-home')
   //   }
   // },
-}
+};
 </script>
-
