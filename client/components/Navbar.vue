@@ -26,7 +26,7 @@
             <NuxtLink to="/candles" class="nav-link"> Get Candles </NuxtLink>
           </li>
           <li v-if="user && Object.keys(user).length > 0" class="nav-item dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            <button class="nav-btn" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               {{ user.username }}
             </button>

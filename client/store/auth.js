@@ -1,4 +1,3 @@
-import Vue from "vue";
 
 export const state = () => ({
   token: "null",
@@ -53,13 +52,6 @@ export const actions = {
       console.log("store - attempt - Something went wrong - ", error);
       commit("SET_TOKEN", null);
       commit("SET_USER", null);
-
-      Vue.notify({
-        group: "auth",
-        type: "error",
-        title: "Error!",
-        text: `Something Went Wrong!`,
-      });
     }
   },
 

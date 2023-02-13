@@ -65,7 +65,7 @@ import { mapActions } from "vuex";
 // import Notification from '~/components/Notification'
 
 export default {
-  // middleware: 'guest',
+  // middleware: "auth",
   // components: {
   //     Notification,
   // },

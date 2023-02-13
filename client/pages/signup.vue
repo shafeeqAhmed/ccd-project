@@ -9,18 +9,39 @@
 
         <div class="mb-3 mt-3">
           <label for="username" class="form-label">Username:</label>
-          <input type="username" class="form-control" id="username" placeholder="Enter username" name="username"
-            v-model="username" required />
+          <input
+            type="username"
+            class="form-control"
+            id="username"
+            placeholder="Enter username"
+            name="username"
+            v-model="username"
+            required
+          />
         </div>
         <div class="mb-3 mt-3">
           <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" v-model="email"
-            required />
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+            v-model="email"
+            required
+          />
         </div>
         <div class="mb-3 mt-3">
           <label for="password" class="form-label">Password:</label>
-          <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" id="password"
-            placeholder="Enter password" name="password" v-model="password" required />
+          <input
+            v-bind:type="[showPassword ? 'text' : 'password']"
+            class="form-control"
+            id="password"
+            placeholder="Enter password"
+            name="password"
+            v-model="password"
+            required
+          />
           <input type="checkbox" @click="showPassword = !showPassword" /> Show
           password
         </div>
@@ -40,7 +61,6 @@
     </div>
     <Footer />
   </div>
-
 </template>
 
 <script>
@@ -86,10 +106,21 @@ export default {
       };
       this.signUp(credentials)
         .then(() => {
+          this.$notify({
+            group: "auth",
+            type: "success",
+            title: "Success!",
+            text: `Signup Successfull`,
+          });
           this.$router.push("/pendingEmailVerification");
         })
         .catch((err) => {
-          console.log(err);
+          this.$notify({
+            group: "auth",
+            type: "error",
+            title: "Error!",
+            text: err.response.data,
+          });
           this.error = err.response;
         });
     },

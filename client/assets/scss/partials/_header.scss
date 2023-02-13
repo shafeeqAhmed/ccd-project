@@ -1,50 +1,63 @@
-.header{
-    background: #0d111f;
-    min-height: 70px;
-    position: relative;
-    z-index: 99;
-    width: 100%;
-    transition: 0.5s all ease-in-out;
-    #navmenu{
-        ul{
-            li{
-                a{
-                    text-decoration: none;
-                    font-size: 16px;
-                    color: #fff;
-                    &:hover{
-                        text-decoration: none;
-                        color: $primary_color;
-                    }
-                }
-            }
+.header {
+  background: #0d111f;
+  min-height: 70px;
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+  .nav-btn {
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 16px;
+    background: $primary_color;
+    border: 1px solid $primary_color
+  }
+  #navmenu {
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          font-size: 16px;
+          color: #fff;
+          &:hover {
+            text-decoration: none;
+            color: $primary_color;
+          }
         }
+      }
     }
+    .dropdown-menu{
+      a{
+        color: #000;
+      }
+    }
+  }
 }
-.sticky.header{
+.sticky.header {
   position: fixed;
   left: 0;
   top: 0;
 }
-@media (max-width:1000px) {
-  .header{
+@media (max-width: 1000px) {
+  .header {
     min-height: 60px;
   }
-  .navbar-toggler{
+  .navbar-toggler {
     color: #fff;
     border: none !important;
     padding: 0px !important;
 
-    &:focus{
+    &:focus {
       border: none !important;
       outline: 0 !important;
       box-shadow: none !important;
     }
-    svg{
-      fill:#fff;
+    svg {
+      fill: #fff;
     }
   }
-  .drop-navbar{
+  .drop-navbar {
     width: 100%;
     background: #0d111f;
     position: fixed !important;
