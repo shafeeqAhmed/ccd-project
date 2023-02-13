@@ -46,14 +46,13 @@
         <div class="divider"></div>
       </div>
       <div class="d-flex align-items-center justify-content-between w-100">
-        <p >
+        <p>
           <NuxtLink to="/forgotPwd" class="">Forgot password?</NuxtLink>
         </p>
         <p>
           Don't have an account?
           <NuxtLink to="/signup" class="">Sign up</NuxtLink>
         </p>
-
       </div>
       <div class="divider mt-1"></div>
       <div class="mt-2">
@@ -67,9 +66,10 @@
 <script>
 import { mapActions } from "vuex";
 // import Notification from '~/components/Notification'
-
+import { email, required } from "vuelidate/lib/validators";
+import { validationMixin } from "vuelidate";
 export default {
-//  middleware: "auth",
+  //  middleware: "auth",
   // components: {
   //     Notification,
   // },
