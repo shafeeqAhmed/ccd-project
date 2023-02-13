@@ -1,13 +1,13 @@
 <template>
-  <nav class="header navbar navbar-expand-lg">
+  <nav class="header navbar navbar-expand-lg"  ref="headRef">
     <div class="container">
       <!-- <a href="#" class="navbar-brand">Logo here</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-        <span class="navbar-toggler-icon"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"><title>menu</title><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
       </button>
       <div class="sidebar-overlay has-dropdown is-hoverable collapse navbar-collapse" id="navmenu"
         data-bs-toggle="collapse" data-bs-target="#navmenu"></div>
-      <div class="px-5 navbar-item has-dropdown is-hoverable collapse navbar-collapse" id="navmenu">
+      <div class="px-5 navbar-item has-dropdown is-hoverable collapse navbar-collapse drop-navbar" id="navmenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <NuxtLink to="/" class="nav-link"> Home </NuxtLink>
@@ -57,7 +57,6 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      isActive: false,
     };
   },
   computed: {
@@ -74,6 +73,18 @@ export default {
     async logout() {
       this.logOut();
     },
+  },
+  mounted(){
+    var sticky = this.$refs['headRef'];
+    window.addEventListener("scroll", () => {
+        var curr = window.pageYOffset;
+
+        if (curr >= 200) {
+            sticky.classList.add("sticky");
+        }else{
+            sticky.classList.remove("sticky");
+        }
+    });
   },
 };
 </script>
