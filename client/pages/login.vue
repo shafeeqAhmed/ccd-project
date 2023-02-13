@@ -70,6 +70,13 @@ import { mapActions } from "vuex";
 import { email, required } from "vuelidate/lib/validators";
 import { validationMixin } from "vuelidate";
 export default {
+  middleware({ store, redirect }) {
+    if (process.client) {
+      if (store.getters["auth/authenticated"]) {
+        return redirect("/");
+      }
+    }
+  },
   //  middleware: "auth",
   // components: {
   //     Notification,

@@ -75,6 +75,13 @@ export default {
   //   Notification,
   // },
   // middleware: 'guest',
+  middleware({ store, redirect }) {
+    if (process.client) {
+      if (store.getters["auth/authenticated"]) {
+        return redirect("/");
+      }
+    }
+  },
   layout: "authlayout",
   data() {
     return {
