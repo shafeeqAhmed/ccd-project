@@ -11,7 +11,7 @@
         :cancel-url="cancelURL"
         @loading="(v) => (loading = v)"
       />
-      <h2 class="display-4 mb-3 text-center">Pricing</h2>
+      <h2 class="display-4 mb-3 mt-3 text-center">Pricing</h2>
       <div class="py-2 container">
         <div class="row card-deck mb-3 text-center">
           <div class="col-md-4">
