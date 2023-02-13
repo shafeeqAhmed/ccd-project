@@ -11,7 +11,7 @@
             - Multiple exchanges supported<br>
             - All timeframes you need<br>
           </p>
-          <a class="btn btn-outline-primary" href="/candles" role="button">Try it!</a>
+          <a class="primary-btn" href="/candles" role="button">Try it!</a>
         </div>
       </div>
 
