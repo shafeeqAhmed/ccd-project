@@ -70,7 +70,20 @@ body{
     width: 100%;
   }
 }
+
+@media (max-width:1000px) {
+  .banner-section{
+    .banner-content{
+      width: 100%;
+      text-align: center;
+    }
+    .particles{
+      height: 340px;
+    }
+  }
+}
 @media (max-width:767px) {
+
 .footer{
   flex-direction: column;
   padding: 10px 0px;

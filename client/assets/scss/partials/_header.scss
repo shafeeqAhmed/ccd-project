@@ -1,6 +1,9 @@
 .header{
     background: #0d111f;
     min-height: 70px;
+    position: relative;
+    z-index: 99;
+
     #navmenu{
         ul{
             li{
@@ -16,4 +19,30 @@
             }
         }
     }
+}
+@media (max-width:1000px) {
+  .header{
+    min-height: 60px;
+  }
+  .navbar-toggler{
+    color: #fff;
+    border: none !important;
+    padding: 0px !important;
+
+    &:focus{
+      border: none !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
+    svg{
+      fill:#fff;
+    }
+  }
+  .drop-navbar{
+    width: 100%;
+    background: #0d111f;
+    position: fixed !important;
+    left: 0;
+    top: 10%;
+  }
 }
