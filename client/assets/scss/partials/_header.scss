@@ -1,17 +1,31 @@
 .header {
-  background: #0d111f;
   min-height: 70px;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   z-index: 99;
   width: 100%;
   transition: 0.5s all ease-in-out;
-  .nav-btn {
+  .log-btn {
+    border-radius: 30px;
+    padding: 7px 20px !important;
+    color: #fff;
+    font-size: 16px;
+    background: $primary_color;
+    border: 1px solid $primary_color;
+    display: inline-block;
+    &:hover{
+      color: #fff !important;
+      box-shadow: $primary_color 0px 0px 12px;
+    }
+  }
+  .nav-btn{
     border-radius: 4px;
     padding: 5px 15px;
     color: #fff;
     font-size: 16px;
     background: $primary_color;
-    border: 1px solid $primary_color
+    border: 1px solid $primary_color;
   }
   #navmenu {
     ul {
@@ -38,10 +52,36 @@
   position: fixed;
   left: 0;
   top: 0;
+  background: #0d111f;
+}
+.breadcrum{
+  min-height: 350px;
+  background: #0d111f;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h2{
+    text-align: center;
+    font-size: 38px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  p{
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    margin: 0px;
+    a{
+      color: $primary_color;
+    }
+  }
 }
 @media (max-width: 1000px) {
   .header {
     min-height: 60px;
+    background: #0d111f;
   }
   .navbar-toggler {
     color: #fff;
@@ -63,5 +103,16 @@
     position: fixed !important;
     left: 0;
     top: 10%;
+    padding: 15px 0px;
+  }
+}
+@media (max-width:767px) {
+  .breadcrum{
+    h2{
+      font-size: 26px;
+    }
+    p{
+      font-size: 16px;
+    }
   }
 }

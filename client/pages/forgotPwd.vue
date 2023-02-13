@@ -1,6 +1,5 @@
 <template>
   <div class="auth_wrapper">
-    <Navbar />
     <div class="cc_auth">
       <h2 class="title has-text-centered">Reset password</h2>
 
@@ -22,13 +21,12 @@
         <p class="m-0 m-2">or</p>
         <div class="divider"></div>
       </div>
-      <div class="mt-2 text-center">
+      <div class="text-center">
         <p>
           <NuxtLink to="/login" class="">Login Here</NuxtLink>
         </p>
       </div>
     </div>
-    <Footer />
   </div>
 </template>
 

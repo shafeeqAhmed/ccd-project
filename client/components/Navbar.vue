@@ -42,7 +42,7 @@
             </ul>
           </li>
           <li v-else class="nav-item">
-            <NuxtLink to="/login" class="nav-link">Login</NuxtLink>
+            <NuxtLink to="/login" class="nav-link log-btn">Login</NuxtLink>
           </li>
         </ul>
       </div>

@@ -1,6 +1,5 @@
 <template>
   <div class="auth_wrapper">
-    <Navbar />
     <div class="cc_auth">
       <h2 class="title has-text-centered">Sign up</h2>
 
@@ -52,14 +51,17 @@
         <p class="m-0 m-2">or</p>
         <div class="divider"></div>
       </div>
-      <div class="mt-2 text-center">
+      <div class="text-center">
         <p>
           Already have an account?
           <NuxtLink to="/login" class="">Login</NuxtLink>
         </p>
       </div>
+      <div class="divider mt-1"></div>
+      <div class="mt-2">
+        <NuxtLink to="/" class="">Back to home</NuxtLink>
+      </div>
     </div>
-    <Footer />
   </div>
 </template>
 

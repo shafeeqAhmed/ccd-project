@@ -1,5 +1,6 @@
 <template>
-  <div class="cc_auth">
+  <div class="auth_wrapper">
+    <div class="cc_auth">
     <h2 class="title has-text-centered">Reset password</h2>
 
     <div v-if="validJWT == true">
@@ -51,12 +52,14 @@
       >
     </div>
   </div>
+  </div>
+
 </template>
 
 <script>
 export default {
   // middleware: 'guest',
-
+  layout: "authlayout",
   data() {
     return {
       email: "",

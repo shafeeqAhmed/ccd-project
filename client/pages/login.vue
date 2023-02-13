@@ -1,6 +1,6 @@
 <template>
   <div class="auth_wrapper">
-    <Navbar />
+    <!-- <Navbar /> -->
     <div class="cc_auth">
       <h2 class="title has-text-centered">Login</h2>
 
@@ -45,18 +45,22 @@
         <p class="m-0 m-2">or</p>
         <div class="divider"></div>
       </div>
-      <div class="mt-2 d-flex align-items-center justify-content-between w-100">
+      <div class="d-flex align-items-center justify-content-between w-100">
+        <p >
+          <NuxtLink to="/forgotPwd" class="">Forgot password?</NuxtLink>
+        </p>
         <p>
           Don't have an account?
           <NuxtLink to="/signup" class="">Sign up</NuxtLink>
         </p>
-        <p>
-          Forgot password?
-          <NuxtLink to="/forgotPwd" class="">Reset it</NuxtLink>
-        </p>
+
+      </div>
+      <div class="divider mt-1"></div>
+      <div class="mt-2">
+        <NuxtLink to="/" class="">Back to home</NuxtLink>
       </div>
     </div>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
