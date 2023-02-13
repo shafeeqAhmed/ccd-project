@@ -70,7 +70,11 @@ body{
     width: 100%;
   }
 }
-
+.candle-btn{
+  &:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
 @media (max-width:1000px) {
   .banner-section{
     .banner-content{
