@@ -1,5 +1,5 @@
 <template>
-  <div class=" profile">
+  <div class="profile">
     <Navbar />
     <div class="breadcrum">
       <div class="container">
@@ -14,16 +14,21 @@
               <b-link v-on:click="displayHidden('account')" class="nav-item"
                 >Account details</b-link
               >
-              <b-link v-on:click="displayHidden('subscription')" class="nav-item"
+              <b-link
+                v-on:click="displayHidden('subscription')"
+                class="nav-item"
                 >My Subscription</b-link
               >
               <b-link v-on:click="displayHidden('apiKeys')" class="nav-item"
                 >API Key</b-link
               >
             </div>
-
           </b-col>
-          <b-col md="10" class="text-center" style="border-left: 1px solid #ccc">
+          <b-col
+            md="10"
+            class="text-center"
+            style="border-left: 1px solid #ccc"
+          >
             <div v-if="account || placeholder">
               <p>
                 <strong>Username:</strong>
@@ -37,7 +42,10 @@
             <div v-else-if="subscription">
               <strong>Plan:</strong>
               {{ user.plan }}<br />
-              <a class="my-3 btn btn-primary" href="/pricing">Change plan</a>
+
+              <NuxtLink class="my-3 btn btn-primary" to="/pricing">
+                Change plan
+              </NuxtLink>
             </div>
             <div v-else-if="apiKeys">
               <strong>API Key:</strong>
@@ -65,15 +73,8 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  // middleware: 'auth',
+  middleware: "auth",
   layout: "authlayout",
-  middleware({ store, redirect }) {
-    if (process.client) {
-      if (store.state.auth.token === "null") {
-        return redirect("/login");
-      }
-    }
-  },
   data() {
     return {
       account: false,

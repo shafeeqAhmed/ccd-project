@@ -11,7 +11,9 @@
             - Multiple exchanges supported<br>
             - All timeframes you need<br>
           </p>
-          <a class="primary-btn" href="/candles" role="button">Try it for free!</a>
+          <NuxtLink class="primary-btn" to="/candles">
+                Try it for free!
+          </NuxtLink>
         </div>
       </div>
 
