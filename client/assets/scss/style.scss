@@ -72,8 +72,18 @@ body {
     width: 100%;
   }
 }
+.candle-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .candle-btn {
   overflow: hidden;
+  border-radius: 30px;
+  background: #E2E8D7;
+  border: 1px solid #E2E8D7;
+  padding: 4px 40px;
+  margin: 0px 10px;
   &:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }

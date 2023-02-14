@@ -17,9 +17,9 @@
     <section class="mt-4">
       <div class="container">
         <h3>Select your desired exchange:</h3>
-        <div class="buttons is-centered pt-6">
+        <div class="candle-buttons mt-5 mb-5">
           <progress v-if="isLoadingExchanges" class="progress is-small is-dark" max="100"></progress>
-          <div v-for="exchange in exchanges" v-else :key="exchange" style="text-align: center; margin: 3%">
+          <div v-for="exchange in exchanges" v-else :key="exchange">
             <button class="candle-btn" :class="
               selectedExchange === exchange ? 'is-secondary' : 'is-light'
             " @click="getData(exchange)">
@@ -67,9 +67,11 @@
             </div>
           </div>
         </fieldset>
-        <button class="mt-4 primary-btn" @click="getCandle">
-          Get your candles!
-        </button>
+        <div class="text-center mt-4">
+          <button class="primary-btn" @click="getCandle">
+            Get your candles!
+          </button>
+        </div>
         <!-- Just to add a bit of space -->
         <div v-if="!candles" class="py-5"></div>
       </div>
