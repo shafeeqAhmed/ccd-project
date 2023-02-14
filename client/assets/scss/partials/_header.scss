@@ -13,10 +13,10 @@
     font-size: 16px;
     border: 1px solid $primary_color;
     display: inline-block;
+    background: $primary_color;
     &:hover{
       color: #fff !important;
       box-shadow: $primary_color 0px 0px 12px;
-      background: $primary_color;
       transition: 0.4s;
     }
   }

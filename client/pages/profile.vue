@@ -1,22 +1,29 @@
 <template>
-  <div class="auth_wrapper profile">
+  <div class=" profile">
     <Navbar />
-    <div class="mt-5 p-5 w-100">
-      <h2 class="display-4 text-center">My Profile</h2>
-      <b-container class="py-5 bv-example-row">
+    <div class="breadcrum">
+      <div class="container">
+        <h2>My Profile</h2>
+      </div>
+    </div>
+    <div class="w-100 profile-nav mt-4 mb-5">
+      <div class="container">
         <b-row>
-          <b-col class="navbar-nav text-center">
-            <b-link v-on:click="displayHidden('account')" class="nav-item"
-              >Account details</b-link
-            >
-            <b-link v-on:click="displayHidden('subscription')" class="nav-item"
-              >My Subscription</b-link
-            >
-            <b-link v-on:click="displayHidden('apiKeys')" class="nav-item"
-              >API Key</b-link
-            >
+          <b-col md="2" class="text-center">
+            <div class="navbar-nav">
+              <b-link v-on:click="displayHidden('account')" class="nav-item"
+                >Account details</b-link
+              >
+              <b-link v-on:click="displayHidden('subscription')" class="nav-item"
+                >My Subscription</b-link
+              >
+              <b-link v-on:click="displayHidden('apiKeys')" class="nav-item"
+                >API Key</b-link
+              >
+            </div>
+
           </b-col>
-          <b-col class="text-center" style="border-left: 1px solid #ccc">
+          <b-col md="10" class="text-center" style="border-left: 1px solid #ccc">
             <div v-if="account || placeholder">
               <p>
                 <strong>Username:</strong>
@@ -48,7 +55,7 @@
             </div>
           </b-col>
         </b-row>
-      </b-container>
+      </div>
     </div>
     <Footer />
   </div>

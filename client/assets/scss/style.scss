@@ -111,8 +111,33 @@ body {
   }
 }
 .profile{
+  .breadcrum{
+    min-height: 250px !important;
+  }
   .header{
     background: #0d111f;
+    position: relative;
+  }
+  .profile-nav{
+    .navbar-nav{
+      a{
+        border-radius: 30px;
+        background: $primary_color;
+        padding: 5px 15px;
+        color: #fff;
+        display: inline-block;
+        margin-bottom: 10px;
+        &:hover{
+          text-decoration: none;
+          color: #fff;
+          box-shadow: $primary_color 0px 0px 12px;
+        }
+      }
+    }
+  }
+  .footer{
+    position: fixed;
+    bottom: 0;
   }
 }
 //////////////////////////////////////////////////////////////////
