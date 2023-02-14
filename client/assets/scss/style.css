@@ -62,16 +62,17 @@
 }
 .header .log-btn {
   border-radius: 30px;
-  padding: 7px 20px !important;
+  padding: 5px 15px !important;
   color: #fff;
   font-size: 16px;
-  background: #7a60e0;
   border: 1px solid #7a60e0;
   display: inline-block;
 }
 .header .log-btn:hover {
   color: #fff !important;
   box-shadow: #7a60e0 0px 0px 12px;
+  background: #7a60e0;
+  transition: 0.4s;
 }
 .header .nav-btn {
   border-radius: 4px;
@@ -80,6 +81,9 @@
   font-size: 16px;
   background: #7a60e0;
   border: 1px solid #7a60e0;
+}
+.header #navmenu ul li {
+  margin-left: 10px;
 }
 .header #navmenu ul li a {
   text-decoration: none;
@@ -272,8 +276,19 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
+.candle-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .candle-btn {
   overflow: hidden;
+  border-radius: 30px;
+  background: #E2E8D7;
+  border: 1px solid #E2E8D7;
+  padding: 4px 40px;
+  margin: 0px 10px;
 }
 .candle-btn:hover {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
