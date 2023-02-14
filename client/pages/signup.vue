@@ -74,14 +74,14 @@ export default {
   // components: {
   //   Notification,
   // },
-  // middleware: 'guest',
-  middleware({ store, redirect }) {
+   middleware: 'guest',
+  /* middleware({ store, redirect }) {
     if (process.client) {
       if (store.getters["auth/authenticated"]) {
         return redirect("/");
       }
     }
-  },
+  }, */
   layout: "authlayout",
   data() {
     return {
