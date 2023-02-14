@@ -43,18 +43,17 @@
               <strong>Plan:</strong>
               {{ user.plan }}<br />
 
-              <NuxtLink class="my-3 btn btn-primary" to="/pricing">
+              <NuxtLink class="my-3 primary-btn" to="/pricing">
                 Change plan
               </NuxtLink>
             </div>
             <div v-else-if="apiKeys">
               <strong>API Key:</strong>
               {{ user.apiKey }}<br />
-              <b-button
-                class="my-3"
-                variant="outline-primary"
+              <button
+                class="my-3 primary-btn"
                 @click="generateAPIKey()"
-                >Generate new API Key</b-button
+                >Generate new API Key</button
               >
               <p class="small">
                 This will immediately revoke your current API key and display a

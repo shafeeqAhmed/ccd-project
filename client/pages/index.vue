@@ -24,7 +24,7 @@
     </div>
 
     <!-- Boxes -->
-    <div class="pt-5 pb-5">
+    <div class="pt-5 pb-5 bg-white">
       <div class="container">
         <div class="row text-center g-4">
           <div class="col-md">
@@ -108,7 +108,7 @@
 
 
     <!-- Question Accordion -->
-    <div id="questions" class="pb-5 pt-5">
+    <div id="questions" class="pb-5 pt-5 bg-white">
       <div class="container">
         <h2 class="text-center mb-4">Frequently Asked Questions</h2>
         <div class="accordion accordion-flush" id="questions">

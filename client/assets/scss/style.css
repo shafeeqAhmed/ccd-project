@@ -24,6 +24,14 @@
   border-left-color: #42a85f;
 }
 
+body {
+  background: #212529;
+}
+
+.candles-page.auth_wrapper {
+  background: #212529;
+}
+
 .primary-btn {
   background: #7a60e0;
   border: 1px solid #7a60e0;
@@ -75,20 +83,24 @@
   transition: 0.4s;
 }
 .header .nav-btn {
-  border-radius: 4px;
+  border-radius: 30px;
   padding: 5px 15px;
   color: #fff;
   font-size: 16px;
   background: #7a60e0;
   border: 1px solid #7a60e0;
 }
+.header #navmenu ul {
+  align-items: center;
+}
 .header #navmenu ul li {
-  margin-left: 10px;
+  margin-left: 25px;
 }
 .header #navmenu ul li a {
   text-decoration: none;
   font-size: 16px;
   color: #fff;
+  padding: 0px;
 }
 .header #navmenu ul li a:hover {
   text-decoration: none;
