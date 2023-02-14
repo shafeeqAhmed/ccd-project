@@ -70,7 +70,7 @@ body {
 }
 .header .log-btn {
   border-radius: 30px;
-  padding: 5px 15px !important;
+  padding: 3px 15px !important;
   color: #fff;
   font-size: 16px;
   border: 1px solid #7a60e0;
@@ -84,7 +84,7 @@ body {
 }
 .header .nav-btn {
   border-radius: 30px;
-  padding: 5px 15px;
+  padding: 3px 15px;
   color: #fff;
   font-size: 16px;
   background: #7a60e0;
