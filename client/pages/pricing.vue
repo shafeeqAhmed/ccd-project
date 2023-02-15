@@ -81,7 +81,9 @@
                 </ul>
               </div>
               <div v-if="authenticated" class="card-footer bg-transparent">
-                <button class="primary-btn">Select</button>
+                <button class="primary-btn" @click="selectPlan('Basic')">
+                  Select
+                </button>
               </div>
               <div v-else class="card-footer bg-transparent">
                 <NuxtLink to="/signup" class="primary-btn">Sign up</NuxtLink>
@@ -116,7 +118,9 @@
                 </ul>
               </div>
               <div v-if="authenticated" class="card-footer bg-transparent">
-                <button class="primary-btn">Select</button>
+                <button class="primary-btn" @click="selectPlan('Advanced')">
+                  Select
+                </button>
               </div>
               <div v-else class="card-footer bg-transparent">
                 <NuxtLink to="/signup" class="primary-btn">Sign up</NuxtLink>
@@ -173,31 +177,45 @@ export default {
         this.signup();
       }
       if (plan == "Basic") {
-        const res = await this.$axios.get("stripe-line-items", {
-          params: {
-            plan: "Basic",
-          },
-        });
-        this.lineItems = res.data;
+        try {
+          const res = await this.$axios.get("stripe-line-items", {
+            params: {
+              plan: "Basic",
+            },
+          });
+          this.lineItems = res.data;
+        } catch (e) {
+          this.$notify({
+            group: "auth",
+            type: "error",
+            title: "Error!",
+            text: "Network Error!",
+          });
+          console.log(e);
+        }
       } else if (plan == "Advanced") {
-        const res = await this.$axios.get("stripe-line-items", {
-          params: {
-            plan: "Advanced",
-          },
-        });
-        this.lineItems = res.data;
+        try {
+          const res = await this.$axios.get("stripe-line-items", {
+            params: {
+              plan: "Advanced",
+            },
+          });
+          this.lineItems = res.data;
+        } catch (e) {
+          this.$notify({
+            group: "auth",
+            type: "error",
+            title: "Error!",
+            text: "Network Error!",
+          });
+          console.log(e);
+        }
       }
-      console.log(this.lineItems);
-
-      // Redirect to Stripe's secure checkout page
-      this.$refs.checkoutRef.redirectToCheckout();
+      if (this.publishableKey) {
+        // Redirect to Stripe's secure checkout page
+        this.$refs.checkoutRef.redirectToCheckout();
+      }
     },
   },
 };
 </script>
-
-<style scoped>
-/* .container {
-  max-width: 960px;
-} */
-</style>
