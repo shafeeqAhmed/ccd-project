@@ -1,5 +1,5 @@
 <template>
-  <div class="auth_wrapper">
+  <div class="auth_wrapper email_verif">
     <Navbar />
     <div class="pt-5 pb-5 h-100">
       <div class="container">

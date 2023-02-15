@@ -335,6 +335,11 @@ body::-webkit-scrollbar-thumb {
   bottom: 0;
 }
 
+.email_verif .header {
+  background: #0d111f;
+  position: relative;
+}
+
 @media (max-width: 1000px) {
   .header {
     min-height: 60px;
