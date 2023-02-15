@@ -79,7 +79,7 @@ export default {
     window.addEventListener("scroll", () => {
         var curr = window.pageYOffset;
 
-        if (curr >= 200) {
+        if (curr >= 100) {
             sticky.classList.add("sticky");
         }else{
             sticky.classList.remove("sticky");
