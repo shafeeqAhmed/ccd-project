@@ -78,7 +78,11 @@
                 <label class="label is-6 has-text-primary-light">
                   ... and choose your crypto pair</label
                 >
-                <select class="mt-3 form-select w-100" v-model="selectedPair">
+                <select
+                  class="mt-3 form-select w-100"
+                  v-model="selectedPair"
+                  @change="checkCandleData"
+                >
                   <option
                     v-for="(pair, i) in searchPair"
                     :key="i"
@@ -95,6 +99,7 @@
                 <select
                   class="mt-3 form-select w-100"
                   v-model="selectedInterval"
+                  @change="checkCandleData"
                 >
                   <option
                     v-for="(interval, i) in intervals"
@@ -231,6 +236,13 @@ export default {
     this.isLoadingExchanges = false;
   },
   methods: {
+    checkCandleData() {
+      if (this.selectedPair && this.selectedInterval) {
+        this.isDisabled = false;
+      } else {
+        this.isDisabled = true;
+      }
+    },
     async getData(exchange) {
       this.selectedExchange = exchange;
       this.pairs = [];
@@ -238,16 +250,25 @@ export default {
       this.selectedPair = "";
       this.selectedInterval = "";
 
-      const { trading_pairs: tradingPairs } = await this.$axios.$get(
-        `https://cryptocandledata.com/api/trading_pairs?exchange=${exchange}`
-      );
-      this.pairs = tradingPairs;
+      try {
+        const { trading_pairs: tradingPairs } = await this.$axios.$get(
+          `https://cryptocandledata.com/api/trading_pairs?exchange=${exchange}`
+        );
+        this.pairs = tradingPairs;
 
-      const { intervals } = await this.$axios.$get(
-        `https://cryptocandledata.com/api/intervals?exchange=${exchange}`
-      );
-      this.intervals = intervals;
-      this.isDisabled = false;
+        const { intervals } = await this.$axios.$get(
+          `https://cryptocandledata.com/api/intervals?exchange=${exchange}`
+        );
+        this.intervals = intervals;
+      } catch (e) {
+        this.$notify({
+          group: "auth",
+          type: "error",
+          title: "Error!",
+          text: "Network Error!",
+        });
+        //console.log(e);
+      }
     },
     getCandle() {
       this.candles = "";
