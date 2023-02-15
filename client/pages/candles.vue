@@ -25,11 +25,9 @@
         <div class="container">
           <h3>Select your desired exchange:</h3>
           <div class="candle-buttons mt-5 mb-5">
-            <progress
-              v-if="isLoadingExchanges"
-              class="progress is-small is-dark"
-              max="100"
-            ></progress>
+            <div class="progress" v-if="isLoadingExchanges">
+              <div class="progress-bar"></div>
+            </div>
             <div v-for="exchange in exchanges" v-else :key="exchange">
               <button
                 class="candle-btn"
@@ -53,11 +51,9 @@
           <h3 class="title has-text-secondary">
             Select your crypto pair and interval:
           </h3>
-          <progress
-            v-show="selectedExchange && !pairs.length"
-            class="progress is-small is-dark"
-            max="100"
-          ></progress>
+          <div class="progress" v-show="selectedExchange && !pairs.length">
+            <div class="progress-bar"></div>
+          </div>
           <fieldset :disabled="!pairs.length" class="pt-5">
             <div class="row">
               <div class="col-md-4">
@@ -125,7 +121,6 @@
           <div v-if="!candles" class="py-5"></div>
         </div>
       </section>
-      <!-- <section class="px-5 py-3 content mb-0 ccdSection has-background-primary"> -->
       <section
         v-if="candles"
         class="bg-dark text-light mt-3 text-center text-sm-start"
@@ -171,7 +166,10 @@
         class="content ccdSection has-background-primary mb-5"
       >
         <div class="container">
-          <progress class="progress is-small is-dark" max="100"></progress>
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+          <!-- <progress class="progress w-100" max="100"></progress> -->
         </div>
       </section>
     </div>

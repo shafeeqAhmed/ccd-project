@@ -89,6 +89,11 @@
       }
     }
   }
+  .candles-page{
+    .breadcrum h2 {
+        padding-top: 60px;
+    }
+  }
 }
 @media (max-width:540px) {
   .cc_auth {

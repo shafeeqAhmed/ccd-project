@@ -3,7 +3,7 @@
     <section class="hero is-medium-with-navbar is-primary">
       <div class="container hero-body">
         <div>
-          <h1 class="title">{{ article.title }}</h1>
+          <h1 class="title text-white">{{ article.title }}</h1>
           <p>{{ article.description }}</p>
         </div>
       </div>
