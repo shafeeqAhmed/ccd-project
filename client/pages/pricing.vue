@@ -168,12 +168,12 @@ export default {
       const res = await this.$axios.get("config");
       this.publishableKey = res.data.publicKey;
     } catch (e) {
-      this.$notify({
+     /*  this.$notify({
         group: "auth",
         type: "error",
         title: "Error!",
         text: "Network Error!",
-      });
+      }); */
       console.log(e);
     }
   },

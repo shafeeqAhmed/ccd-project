@@ -411,6 +411,7 @@ body::-webkit-scrollbar-thumb {
   }
   .header #navmenu ul {
     align-items: flex-start;
+    display: block !important;
   }
   .header #navmenu ul li {
     margin-bottom: 10px;

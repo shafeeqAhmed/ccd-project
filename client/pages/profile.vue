@@ -32,16 +32,16 @@
             <div v-if="account || placeholder">
               <p>
                 <strong>Username:</strong>
-                {{ user.username }}
+                {{ user?.username }}
               </p>
               <p>
                 <strong>Email:</strong>
-                {{ user.email }}
+                {{ user?.email }}
               </p>
             </div>
             <div v-else-if="subscription">
               <strong>Plan:</strong>
-              {{ user.plan }}<br />
+              {{ user?.plan }}<br />
 
               <NuxtLink class="my-3 primary-btn" to="/pricing">
                 Change plan
@@ -49,7 +49,7 @@
             </div>
             <div v-else-if="apiKeys">
               <strong>API Key:</strong>
-              {{ user.apiKey }}<br />
+              {{ user?.apiKey }}<br />
               <button
                 class="my-3 primary-btn"
                 @click="generateAPIKey()"
