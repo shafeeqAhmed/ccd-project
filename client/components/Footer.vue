@@ -1,7 +1,7 @@
 <template>
   <footer class="footer text-white">
     <div>
-      <p class="lead px-5">
+      <p class="lead m-0">
         {{ new Date().getFullYear() }} - Crypto Candle Data
       </p>
     </div>
@@ -16,7 +16,7 @@
       </ul>
     </div>
     <div>
-      <a class="px-5 text-underline-hover" href="mailto: cryptocandledata@gmail.com">
+      <a class="" href="mailto: cryptocandledata@gmail.com">
         cryptocandledata@gmail.com
       </a>
     </div>

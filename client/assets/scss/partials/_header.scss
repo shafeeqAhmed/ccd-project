@@ -6,6 +6,7 @@
   z-index: 99;
   width: 100%;
   transition: 0.5s all ease-in-out;
+  padding: 0.5rem 2rem;
   .log-btn {
     border-radius: 30px;
     padding: 3px 15px !important;
@@ -86,54 +87,4 @@
     }
   }
 }
-@media (max-width: 1000px) {
-  .header #navmenu ul {
-    align-items: flex-start;
-    li {
-      margin-bottom: 10px;
-    }
-  }
-  .header {
-    min-height: 60px;
-    background: #0d111f;
-  }
-  .navbar-toggler {
-    color: #fff;
-    border: none !important;
-    padding: 0px !important;
 
-    &:focus {
-      border: none !important;
-      outline: 0 !important;
-      box-shadow: none !important;
-    }
-    svg {
-      fill: #fff;
-    }
-  }
-  .drop-navbar {
-    width: 100%;
-    background: #0d111f;
-    position: fixed !important;
-    left: 0;
-    top: 40px;
-    padding: 15px 0px;
-  }
-}
-@media (max-width: 767px) {
-  .breadcrum {
-    min-height: 200px !important;
-    h2 {
-      font-size: 26px;
-    }
-    p {
-      font-size: 16px;
-    }
-  }
-  .candle-buttons {
-    flex-direction: column;
-    button {
-      margin-bottom: 10px;
-    }
-  }
-}

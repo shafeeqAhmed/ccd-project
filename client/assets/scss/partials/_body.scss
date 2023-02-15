@@ -22,9 +22,6 @@ body {
 .main-layout {
   height: 100vh;
 }
-.candles-page.auth_wrapper{
-  background: #212529;
-}
 .primary-btn{
     background: $primary_color;
     border: 1px solid $primary_color;
@@ -39,6 +36,9 @@ body {
         color: #fff;
         box-shadow: $primary_color 0px 0px 12px;
     }
+}
+.candles-page.auth_wrapper{
+  background: #212529;
 }
 .pricing-page{
     .card{
