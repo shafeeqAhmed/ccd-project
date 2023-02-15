@@ -162,14 +162,20 @@ export default {
   },
 
   async mounted() {
-    /*  try {
+    try {
       const prices = await this.$axios.get("pricing");
       this.prices = prices.data;
       const res = await this.$axios.get("config");
       this.publishableKey = res.data.publicKey;
     } catch (e) {
+      this.$notify({
+        group: "auth",
+        type: "error",
+        title: "Error!",
+        text: "Network Error!",
+      });
       console.log(e);
-    } */
+    }
   },
   methods: {
     async selectPlan(plan) {

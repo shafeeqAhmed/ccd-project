@@ -267,7 +267,6 @@ export default {
           text: "Network Error!",
         });
         this.selectedExchange = "";
-        //console.log(e);
       }
     },
     getCandle() {
