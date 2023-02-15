@@ -16,7 +16,7 @@
       </ul>
     </div>
     <div>
-      <a class="px-5 text-underline-hover" href="mailto: cryptocandledata@gmail.com">
+      <a class="" href="mailto: cryptocandledata@gmail.com">
         cryptocandledata@gmail.com
       </a>
     </div>
