@@ -399,7 +399,10 @@ body::-webkit-scrollbar-thumb {
     height: auto;
   }
   .footer p {
-    margin: 10px;
+    margin: 15px 0px !important;
+  }
+  .footer ul {
+    margin-bottom: 15px;
   }
   .cc_auth {
     padding: 1.5rem 1rem;
