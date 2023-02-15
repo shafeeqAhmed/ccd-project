@@ -13,11 +13,9 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
-
   // script: [
   //   { src: 'https://js.stripe.com/v3' },
   // ],
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/css/bootstrap.min.css", "~/assets/scss/style.css"],
 
@@ -32,12 +30,8 @@ export default {
   ssr: false,
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
-  /*  router: {
-    middleware: ["guest"],
-  }, */
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -45,11 +39,9 @@ export default {
     "bootstrap-vue/nuxt",
     "@nuxt/content",
   ],
-
   bootstrapVue: {
     icons: true,
   },
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

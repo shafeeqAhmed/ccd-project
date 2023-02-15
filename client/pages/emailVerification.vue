@@ -1,14 +1,18 @@
 <template>
   <div class="mt-5 p-5">
-    <div v-if="validJWT==true">
+    <div v-if="validJWT == true">
       <b-alert show variant="success">Email verification successful!</b-alert>
-      <a class="btn btn-outline-primary" href="/login" role="button">Go to Log in</a>
+
+      <NuxtLink to="/login" class="btn btn-outline-primary"
+        >Go to Log in</NuxtLink
+      >
     </div>
-    <div v-else-if="validJWT==false">
+    <div v-else-if="validJWT == false">
       <b-alert show variant="danger">
-        Email verification not successful. The confirmation link is invalid or has expired.
+        Email verification not successful. The confirmation link is invalid or
+        has expired.
       </b-alert>
-      <a class="btn btn-outline-primary" href="/" role="button">Go to Homepage</a>
+      <NuxtLink to="/" class="btn btn-outline-primary">Go to Homepage</NuxtLink>
     </div>
   </div>
 </template>
@@ -19,27 +23,27 @@ export default {
 
   data() {
     return {
-      emailVerificationJWT: '',
-      validJWT: null
-    }
+      emailVerificationJWT: "",
+      validJWT: null,
+    };
   },
-  
+
   mounted() {
     this.emailVerificationJWT = this.$route.query.token;
-    this.verifyEmail()
+    this.verifyEmail();
   },
 
   methods: {
     async verifyEmail() {
-    try {
-        const res = await this.$axios.post('verify-email', {
-        emailVerificationJWT: this.emailVerificationJWT
-        })
-        this.validJWT = res.data
-    } catch (err) {
-        console.log(err)
-    }
+      try {
+        const res = await this.$axios.post("verify-email", {
+          emailVerificationJWT: this.emailVerificationJWT,
+        });
+        this.validJWT = res.data;
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
-}
+};
 </script>

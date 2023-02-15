@@ -18,36 +18,34 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const article = await $content('articles', params.slug).fetch()
+    const article = await $content("articles", params.slug).fetch();
 
-    const [prev, next] = await $content('articles')
-      .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
+    const [prev, next] = await $content("articles")
+      .only(["title", "slug"])
+      .sortBy("createdAt", "asc")
       .surround(params.slug)
-      .fetch()
+      .fetch();
 
     return {
       article,
       prev,
       next,
-    }
+    };
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      return new Date(date).toLocaleDateString("en", options);
     },
   },
-}
+};
 </script>
 
 <style>
 .myBgImage {
   padding: 10% 10% 5%;
 }
-.ccdContainer {
-  background-color: #333533;
-}
+
 .cddArticle {
   margin-top: 5%;
   padding: 5%;

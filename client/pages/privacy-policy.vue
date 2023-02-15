@@ -17,32 +17,28 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const article = await $content('/legal/privacy-policy').fetch()
+    const article = await $content("/legal/privacy-policy").fetch();
 
-    return { article }
+    return { article };
   },
-}
+};
 </script>
 
 <style>
-h1, h2 {
+h1,
+h2 {
   text-align: center;
 }
 .myBgImage {
   padding: 10% 10% 5%;
 }
-.ccdContainer {
-  background-color: #333533;
-}
+
 .cddArticle {
   margin-top: 5%;
   padding: 5%;
   border-radius: 10px;
   box-shadow: 0px 5px 10px gray;
   background-color: white;
-}
-.ccdPrevNext {
-  padding: 5%;
 }
 
 .nuxt-content a {

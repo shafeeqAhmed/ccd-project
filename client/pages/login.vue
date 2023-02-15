@@ -6,8 +6,7 @@
       <h2 class="title has-text-centered">Login</h2>
 
       <form method="post" @submit.prevent="submit">
-        <!-- <Notification :message="error" v-if="error" /> -->
-
+      
         <div class="mb-3 mt-3">
           <label for="email" class="form-label">Email:</label>
           <input
@@ -66,16 +65,10 @@
 
 <script>
 import { mapActions } from "vuex";
-// import Notification from '~/components/Notification'
-import { email, required } from "vuelidate/lib/validators";
-import { validationMixin } from "vuelidate";
+
 export default {
   middleware: "guest",
-  // components: {
-  //     Notification,
-  // },
   layout: "authlayout",
-
   data() {
     return {
       email: "",
@@ -84,13 +77,11 @@ export default {
       error: null,
     };
   },
-
   computed: {
     buttonLabel() {
       return this.showPassword ? "Hide" : "Show";
     },
   },
-
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;
@@ -98,7 +89,6 @@ export default {
     ...mapActions({
       logIn: "auth/logIn",
     }),
-
     submit() {
       const credentials = {
         email: this.email,

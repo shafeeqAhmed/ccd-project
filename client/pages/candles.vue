@@ -51,6 +51,7 @@
           <h3 class="title has-text-secondary">
             Select your crypto pair and interval:
           </h3>
+
           <div class="progress" v-show="selectedExchange && !pairs.length">
             <div class="progress-bar"></div>
           </div>
@@ -265,6 +266,7 @@ export default {
           title: "Error!",
           text: "Network Error!",
         });
+        this.selectedExchange = "";
         //console.log(e);
       }
     },

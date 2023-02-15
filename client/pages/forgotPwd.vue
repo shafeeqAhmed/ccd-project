@@ -5,7 +5,6 @@
       <h2 class="title has-text-centered">Reset password</h2>
 
       <form method="post" @submit.prevent="resetPassword">
-        <!-- <Notification :message="error" v-if="error" /> -->
         <div class="mb-3 mt-3">
           <p>
             Lost your password? Please enter your email address. You will
@@ -39,13 +38,8 @@
 </template>
 
 <script>
-// import Notification from '~/components/Notification'
-
 export default {
-  // middleware: 'guest',
-  // components: {
-  //     Notification,
-  // },
+  middleware: "guest",
   layout: "authlayout",
   data() {
     return {
@@ -53,14 +47,12 @@ export default {
       error: null,
     };
   },
-
   methods: {
     async resetPassword() {
       try {
         await this.$axios.post("reset-password", {
           email: this.email,
         });
-
         this.$notify({
           group: "auth",
           type: "success",
@@ -72,21 +64,20 @@ export default {
         }, 1700);
       } catch (err) {
         if (err.response === undefined) {
-            this.$notify({
-              group: "auth",
-              type: "error",
-              title: "Error!",
-              text: err,
-            });
-          } else {
-            this.$notify({
-              group: "auth",
-              type: "error",
-              title: "Error!",
-              text: err.response.data,
-            });
-          }
-        console.log(err.response);
+          this.$notify({
+            group: "auth",
+            type: "error",
+            title: "Error!",
+            text: err,
+          });
+        } else {
+          this.$notify({
+            group: "auth",
+            type: "error",
+            title: "Error!",
+            text: err.response.data,
+          });
+        }
       }
     },
   },

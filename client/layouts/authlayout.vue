@@ -28,7 +28,7 @@ export default {
 
     async keepUserLoggedIn() {
       await this.attempt(localStorage.getItem("USER_TOKEN"));
-      console.log("default - ", this.user);
+   
     },
   },
 };

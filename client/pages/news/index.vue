@@ -79,53 +79,55 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const articles = await $content('articles', params.slug)
+    const articles = await $content("articles", params.slug)
       .only([
-        'title',
-        'description',
-        'tags',
-        'img',
-        'slug',
-        'author',
-        'createdAt',
+        "title",
+        "description",
+        "tags",
+        "img",
+        "slug",
+        "author",
+        "createdAt",
       ])
-      .sortBy('createdAt', 'desc')
-      .fetch()
+      .sortBy("createdAt", "desc")
+      .fetch();
 
     const articleTags = [
       ...new Set(
         articles.reduce((acc, current) => [...acc, ...current.tags], [])
       ),
-    ]
-    return { articles, articleTags }
+    ];
+    return { articles, articleTags };
   },
   data() {
     return {
       filteredTags: this.articleTags,
       selectedTags: [],
-      order: 'desc',
-    }
+      order: "desc",
+    };
   },
   computed: {
     orderedArticles() {
-      return this.order === 'asc' ? [...this.articles].reverse() : this.articles
+      return this.order === "asc"
+        ? [...this.articles].reverse()
+        : this.articles;
     },
     filteredArticles() {
       return this.selectedTags.length !== 0
         ? this.orderedArticles.filter((i) =>
             i.tags.some((t) => this.selectedTags.includes(t))
           )
-        : this.orderedArticles
+        : this.orderedArticles;
     },
   },
   methods: {
     getFilteredTags(text) {
       this.filteredTags = this.articleTags.filter((tag) =>
         tag.toLowerCase().includes(text.toLowerCase())
-      )
+      );
     },
   },
-}
+};
 </script>
 
 <style scoped>

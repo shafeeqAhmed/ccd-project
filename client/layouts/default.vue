@@ -1,7 +1,6 @@
 <template>
   <div class="main-layout" ref="main_home">
     <Navbar />
-
     <Nuxt />
     <Notify />
     <Footer />

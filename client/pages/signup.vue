@@ -5,8 +5,6 @@
       <h2 class="title has-text-centered">Sign up</h2>
 
       <form method="post" @submit.prevent="submit">
-        <!-- <Notification v-if="error" :message="error" /> -->
-
         <div class="mb-3 mt-3">
           <label for="username" class="form-label">Username:</label>
           <input
@@ -68,12 +66,8 @@
 
 <script>
 import { mapActions } from "vuex";
-// import Notification from '~/components/Notification'
 
 export default {
-  // components: {
-  //   Notification,
-  // },
   middleware: "guest",
   /* middleware({ store, redirect }) {
     if (process.client) {
@@ -92,22 +86,18 @@ export default {
       error: null,
     };
   },
-
   computed: {
     buttonLabel() {
       return this.showPassword ? "Hide" : "Show";
     },
   },
-
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;
     },
-
     ...mapActions({
       signUp: "auth/signUp",
     }),
-
     submit() {
       const credentials = {
         username: this.username,
