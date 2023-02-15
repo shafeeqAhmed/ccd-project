@@ -116,12 +116,21 @@ export default {
           this.$router.push("/profile");
         })
         .catch((err) => {
-          this.$notify({
-            group: "auth",
-            type: "error",
-            title: "Error!",
-            text: err.response.data,
-          });
+          if (err.response === undefined) {
+            this.$notify({
+              group: "auth",
+              type: "error",
+              title: "Error!",
+              text: err,
+            });
+          } else {
+            this.$notify({
+              group: "auth",
+              type: "error",
+              title: "Error!",
+              text: err.response.data,
+            });
+          }
           this.error = err.response;
         });
     },
