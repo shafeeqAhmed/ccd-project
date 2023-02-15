@@ -74,7 +74,7 @@ export default {
   // components: {
   //   Notification,
   // },
-   middleware: 'guest',
+  middleware: "guest",
   /* middleware({ store, redirect }) {
     if (process.client) {
       if (store.getters["auth/authenticated"]) {
@@ -125,12 +125,21 @@ export default {
           this.$router.push("/pendingEmailVerification");
         })
         .catch((err) => {
-          this.$notify({
-            group: "auth",
-            type: "error",
-            title: "Error!",
-            text: err.response.data,
-          });
+          if (err.response === undefined) {
+            this.$notify({
+              group: "auth",
+              type: "error",
+              title: "Error!",
+              text: err,
+            });
+          } else {
+            this.$notify({
+              group: "auth",
+              type: "error",
+              title: "Error!",
+              text: err.response.data,
+            });
+          }
           this.error = err.response;
         });
     },

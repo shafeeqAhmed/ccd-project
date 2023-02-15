@@ -70,14 +70,23 @@ export default {
         setTimeout(async () => {
           this.$router.push("/login");
         }, 1700);
-      } catch (e) {
-        this.$notify({
-          group: "auth",
-          type: "error",
-          title: "Error!",
-          text: "User (email) does not exists!",
-        });
-        console.log(e);
+      } catch (err) {
+        if (err.response === undefined) {
+            this.$notify({
+              group: "auth",
+              type: "error",
+              title: "Error!",
+              text: err,
+            });
+          } else {
+            this.$notify({
+              group: "auth",
+              type: "error",
+              title: "Error!",
+              text: err.response.data,
+            });
+          }
+        console.log(err.response);
       }
     },
   },
