@@ -12,10 +12,7 @@
             Specify your parameters in the form below and get the candles in
             OHLC format (open, high, low, close).<br />
             Feel free to ask any question at
-            <a
-              class="has-text-secondary hover:underline"
-              href="mailto: cryptocandledata@gmail.com"
-            >
+            <a class="has-text-secondary hover:underline" href="mailto: cryptocandledata@gmail.com">
               cryptocandledata@gmail.com
             </a>
           </p>
@@ -25,24 +22,14 @@
         <div class="container">
           <h3>Select your desired exchange:</h3>
           <div class="candle-buttons mt-5 mb-5">
-            <progress
-              v-if="isLoadingExchanges"
-              class="progress is-small is-dark"
-              max="100"
-            ></progress>
+            <div class="progress"  v-if="isLoadingExchanges">
+            <div class="progress-bar"></div>
+          </div>
             <div v-for="exchange in exchanges" v-else :key="exchange">
-              <button
-                class="candle-btn"
-                :class="
-                  selectedExchange === exchange ? 'is-secondary' : 'is-light'
-                "
-                @click="getData(exchange)"
-              >
-                <img
-                  style="width: 125px"
-                  :src="images[exchange.toLowerCase()]"
-                  :alt="`Logo of ${exchange}`"
-                />
+              <button class="candle-btn" :class="
+                selectedExchange === exchange ? 'is-secondary' : 'is-light'
+              " @click="getData(exchange)">
+                <img style="width: 125px" :src="images[exchange.toLowerCase()]" :alt="`Logo of ${exchange}`" />
               </button>
             </div>
           </div>
@@ -53,54 +40,35 @@
           <h3 class="title has-text-secondary">
             Select your crypto pair and interval:
           </h3>
-          <progress
-            v-show="selectedExchange && !pairs.length"
-            class="progress is-small is-dark"
-            max="100"
-          ></progress>
+          <div class="progress" v-show="selectedExchange && !pairs.length">
+            <div class="progress-bar"></div>
+          </div>
           <fieldset :disabled="!pairs.length" class="pt-5">
             <div class="row">
               <div class="col-md-4">
                 <form>
                   <div class="form-group">
                     <label>1. Start typing...</label>
-                    <input
-                      v-model="inputSearch"
-                      class="form-control mt-3"
-                      :class="{ 'is-secondary': pairs.length }"
-                      :placeholder="pairs.length ? 'e.g. BTC or ETH' : ''"
-                    />
+                    <input v-model="inputSearch" class="form-control mt-3" :class="{ 'is-secondary': pairs.length }"
+                      :placeholder="pairs.length ? 'e.g. BTC or ETH' : ''" />
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                   </div>
                 </form>
               </div>
               <div class="col-md-4">
                 <label class="label is-6 has-text-primary-light">
-                  ... and choose your crypto pair</label
-                >
+                  ... and choose your crypto pair</label>
                 <select class="mt-3 form-select w-100" v-model="selectedPair">
-                  <option
-                    v-for="(pair, i) in searchPair"
-                    :key="i"
-                    :value="pair"
-                  >
+                  <option v-for="(pair, i) in searchPair" :key="i" :value="pair">
                     {{ pair }}
                   </option>
                 </select>
               </div>
               <div class="col-md-4">
                 <label class="label is-6 has-text-primary-light">
-                  2. Set your interval!</label
-                >
-                <select
-                  class="mt-3 form-select w-100"
-                  v-model="selectedInterval"
-                >
-                  <option
-                    v-for="(interval, i) in intervals"
-                    :key="i"
-                    :value="interval"
-                  >
+                  2. Set your interval!</label>
+                <select class="mt-3 form-select w-100" v-model="selectedInterval">
+                  <option v-for="(interval, i) in intervals" :key="i" :value="interval">
                     {{ interval }}
                   </option>
                 </select>
@@ -108,11 +76,7 @@
             </div>
           </fieldset>
           <div class="text-center mt-4">
-            <button
-              class="primary-btn"
-              @click="getCandle"
-              :disabled="isDisabled"
-            >
+            <button class="primary-btn" @click="getCandle" :disabled="isDisabled">
               Get your candles!
             </button>
           </div>
@@ -120,11 +84,7 @@
           <div v-if="!candles" class="py-5"></div>
         </div>
       </section>
-      <!-- <section class="px-5 py-3 content mb-0 ccdSection has-background-primary"> -->
-      <section
-        v-if="candles"
-        class="bg-dark text-light mt-3 text-center text-sm-start"
-      >
+      <section v-if="candles" class="bg-dark text-light mt-3 text-center text-sm-start">
         <div class="container">
           <div class="card bg-secondary text-light">
             <div class="card-body text-center">
@@ -161,12 +121,12 @@
           </div>
         </div>
       </section>
-      <section
-        v-else-if="isLoadingCandles"
-        class="content ccdSection has-background-primary mb-5"
-      >
+      <section v-else-if="isLoadingCandles" class="content ccdSection has-background-primary mb-5">
         <div class="container">
-          <progress class="progress is-small is-dark" max="100"></progress>
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+          <!-- <progress class="progress w-100" max="100"></progress> -->
         </div>
       </section>
     </div>
