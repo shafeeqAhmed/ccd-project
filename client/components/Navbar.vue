@@ -11,9 +11,6 @@
           <li class="nav-item">
             <NuxtLink to="/" class="nav-link"> Home </NuxtLink>
           </li>
-          <!-- <li class="nav-item">
-            <a href="/news" class="nav-link">News</a>
-          </li> -->
           <li class="nav-item">
             <NuxtLink to="/pricing" class="nav-link"> Pricing </NuxtLink>
           </li>
